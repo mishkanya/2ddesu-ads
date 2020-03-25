@@ -57,9 +57,9 @@ class AdsPanel extends React.Component {
         var third = document.getElementById('input3').getAttribute('value');
         var res = (first * 5 + second * 5) * (1.05 - third * 0.05) ;
         //var randomID = getRandomArbitrary(100000000,900000000)
-        var Message = "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +"\nОбщая стоимость: " + (res.slice(0,6));
+        var Message = "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +"\nОбщая стоимость: " + (res.slice(0,7));
         bridge.send("VKWebAppCopyText", {text: Message});
-        copy(Message);
+        copy(Message+' ');
  
         //return 'За рекламу вы заплатите:'+ res;
     }
