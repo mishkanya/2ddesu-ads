@@ -60,7 +60,7 @@ class AdsPanel extends React.Component {
         var Message = "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +"\nОбщая стоимость: " + (res.slice(0,6));
         bridge.send("VKWebAppCopyText", {text: Message});
         copy(Message);
-
+ 
         //return 'За рекламу вы заплатите:'+ res;
     }
     render() {
