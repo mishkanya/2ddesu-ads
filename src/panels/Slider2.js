@@ -39,15 +39,12 @@ class Slider2 extends React.Component {
     render() {
       return (
         <Div>
-            <List >
-            <Cell before = {'Часов в закрепе: '} >
-              <Input 
+              <Input before = {'Часов в закрепе: '} 
               disabled
               id='input2'
               min={1}
               max={4} value={Number(this.state.value2)} onChange={e => this.setState({ value2: e.target.value })} type="number"/>
-            </Cell>
-            <Cell>
+            
               <Slider
               align="right" 
               step={1}
@@ -56,8 +53,6 @@ class Slider2 extends React.Component {
               value={Number(this.state.value2)}
               onChange={value2 => this.setState({value2})}
               />
-            </Cell>
-          </List>
         </Div>
       );
     }

@@ -27,20 +27,16 @@ class Checkbox1 extends React.Component {
     render() {
       return (
         <Div>
-            <List>
+          
                 <Cell before = {'Зaкрепить запись?'}>
                 <Checkbox
                 id='checkbox1'
                 value = {Boolean(this.state.showSlider)}
-                //onChange={showSlider => this.setState({showSlider})}
                 onChange={showSlider => (this.setState({showSlider : !this.state.showSlider}))}
-                //onChange={() => (console.log(this.state.showSlider),this.setState({showSlider : !this.state.showSlider}))}
-                //onChange={() => (console.log(value),this.state.showSlider = this.state.showSlider,this.setState({showSlider : !this.state.showSlider}))}
-                >
-                </Checkbox>
+                />
+                
                 </Cell>
-      <Cell > {this.state.showSlider? <Slider2/> : null}</Cell>
-            </List>
+      {this.state.showSlider? <Slider2/> : null}
         </Div>
       );
     }
