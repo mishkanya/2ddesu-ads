@@ -66,10 +66,8 @@ class AdsPanel extends React.Component {
     render() {
       return (
         <Div>
-            <Group title="Время поста в ленте" > 
             <Slider1 />
             <Checkbox1/>
-            </Group>
             <Slider3/>
             <p id='footer' align="center" > Скидки на оптовые покупки</p>
       <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
