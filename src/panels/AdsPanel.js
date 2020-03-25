@@ -66,13 +66,9 @@ class AdsPanel extends React.Component {
     render() {
       return (
         <Div>
-            <Cell title="Время поста в ленте" > 
-              <Slider1 />
-            </Cell>
+              <Slider1 title="Время поста в ленте" />
 
-            <Cell title="Время закрепленного поста в ленте" > 
-              <Checkbox1/>
-            </Cell>
+              <Checkbox1 title="Время закрепленного поста в ленте"/>
             <Slider3/>
       <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
       </Div>
