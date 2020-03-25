@@ -41,7 +41,6 @@ class Slider3 extends React.Component {
     render() {
       return (
         <Div>
-          <List>
           <Cell before = {'Число постов: '} >
               <Input 
               disabled
@@ -49,7 +48,6 @@ class Slider3 extends React.Component {
               min={1}
               max={5} value={Number(this.state.value1)} onChange={e => this.setState({ value1: e.target.value })} type="number"/>
             </Cell>
-            <Cell >
               <Slider
               align="right" 
               step={1}
@@ -58,8 +56,8 @@ class Slider3 extends React.Component {
               value={Number(this.state.value1)}
               onChange={value1 => this.setState({value1})}
               />
-            </Cell>
-          </List>
+              
+            <p id='footer' align="center" > Скидки на оптовые покупки</p>
         </Div>
       );
     }
