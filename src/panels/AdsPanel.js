@@ -54,12 +54,8 @@ class AdsPanel extends React.Component {
         }
         var third = document.getElementById('input3').getAttribute('value');
         var res = (first * 5 + second * 5) * third ;
-        //var token = "";
-        //bridge.send("VKWebAppGetAuthToken", {"app_id": 7367088, "scope": "friends "});
-        //bridge.subscribe((e) => (token = e));
-        var randomID = getRandomArbitrary(100000000,900000000)
-        //bridge.send("VKWebAppCallAPIMethod", {"method": "messages.send", "request_id": "11111", "params": {"user_id": "372864591","random_id": randomID,"peer_id" : "1850123234513","message": 'test',"dont_parse_links":"0","disable_mentions" : "0", "v":"5.103", "access_token":token}});
-        bridge.send("VKWebAppCopyText", {text: "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов' + third +"\nОбщая стоимость: " + res});
+        //var randomID = getRandomArbitrary(100000000,900000000)
+        bridge.send("VKWebAppCopyText", {text: "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +"\nОбщая стоимость: " + res});
 
         bridge.subscribe((e) => (console.log(e)));
         return 'За рекламу вы заплатите:'+ res;
