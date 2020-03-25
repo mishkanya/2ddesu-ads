@@ -25,3 +25,10 @@ p.PCPAY{
   src: url("../Fonts/Aqum.ttf");
   color : #4a76a8 ;
 }
+p.footer{
+  
+  font-family: "Aqum";
+  font-style: normal;
+  src: url("../Fonts/Aqum.ttf");
+  color : #4a76a8 ;
+}
