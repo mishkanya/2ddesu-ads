@@ -16,6 +16,8 @@ import bridge from '@vkontakte/vk-bridge';
 import { platform, IOS } from '@vkontakte/vkui';
 import PCPay from './PCPay';
 
+import copy from 'copy-to-clipboard';
+
 const osName = platform();
 
 class AdsPanel extends React.Component {
@@ -53,22 +55,13 @@ class AdsPanel extends React.Component {
           var second = 0;
         }
         var third = document.getElementById('input3').getAttribute('value');
-        var res = (first * 5 + second * 5) * third ;
+        var res = (first * 5 + second * 5) * (1.05 - third * 0.05) ;
         //var randomID = getRandomArbitrary(100000000,900000000)
-        bridge.send("VKWebAppCopyText", {text: "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +"\nОбщая стоимость: " + res});
+        var Message = "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +"\nОбщая стоимость: " + res;
+        bridge.send("VKWebAppCopyText", {text: Message});
+        copy(Message +":3");
 
-        bridge.subscribe((e) => (console.log(e)));
         return 'За рекламу вы заплатите:'+ res;
-    }
-    send(){
-      //if(((osName !== ANDROID) && (osName !== IOS)))
-      if(true)
-      {
-        return true
-      }
-      else{
-        return false
-      }
     }
     render() {
       return (
@@ -78,7 +71,7 @@ class AdsPanel extends React.Component {
             <Checkbox1/>
             </Group>
             <Slider3/>
-      <Group align="center" > {this.send()? <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (console.log(this.calculate() ))}>Заказать рекламу</Button> : <Button onClick={()=> (console.log(this.calculate()))}>Подсчитать стоимость</Button>}</Group>
+      <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (console.log(this.calculate() ))}>Заказать рекламу</Button></Group>
       </Div>
       );
     }
