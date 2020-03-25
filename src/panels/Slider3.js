@@ -41,13 +41,12 @@ class Slider3 extends React.Component {
     render() {
       return (
         <Div>
-          <Cell before = {'Число постов: '} >
-              <Input 
+              <Input before = {'Число постов: '} 
               disabled
               id='input3'
               min={1}
               max={5} value={Number(this.state.value1)} onChange={e => this.setState({ value1: e.target.value })} type="number"/>
-            </Cell>
+            
               <Slider
               align="right" 
               step={1}
