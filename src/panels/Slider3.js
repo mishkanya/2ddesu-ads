@@ -58,6 +58,8 @@ class Slider3 extends React.Component {
               value={Number(this.state.value1)}
               onChange={value1 => this.setState({value1})}
               />
+              
+            <p className='footer' align="center" > Скидки на оптовые покупки</p>
             </Cell>
           </List>
         </Div>
