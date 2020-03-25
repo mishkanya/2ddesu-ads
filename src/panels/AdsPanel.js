@@ -58,7 +58,7 @@ class AdsPanel extends React.Component {
         var res = (first * 5 + second * 5) * (1.05 - third * 0.05) * third;
         //var randomID = getRandomArbitrary(100000000,900000000)
         var Message = "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +'\nОбщая стоимость: ' + Math.round(res);
-        bridge.send("VKWebAppCopyText", {text: Message}); 
+        //bridge.send("VKWebAppCopyText", {text: Message}); 
         copy(Message);
  
         //return 'За рекламу вы заплатите:'+ res;
@@ -66,17 +66,12 @@ class AdsPanel extends React.Component {
     render() {
       return (
         <Div>
-<<<<<<< HEAD
-              <Slider1 title="Время поста в ленте" />
-
-              <Checkbox1 title="Время закрепленного поста в ленте"/>
-=======
             <Group title="Время поста в ленте" > 
             <Slider1 />
             <Checkbox1/>
             </Group>
->>>>>>> parent of 7529233... add footer
             <Slider3/>
+            <p id='footer' align="center" > Скидки на оптовые покупки</p>
       <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
       </Div>
       );
