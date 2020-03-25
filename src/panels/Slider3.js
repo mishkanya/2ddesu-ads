@@ -41,12 +41,23 @@ class Slider3 extends React.Component {
     render() {
       return (
         <Div>
+<<<<<<< HEAD
               <Input before = {'Число постов: '} 
+=======
+          <List>
+          <Cell before = {'Число постов: '} >
+              <Input 
+>>>>>>> parent of 7529233... add footer
               disabled
               id='input3'
               min={1}
               max={5} value={Number(this.state.value1)} onChange={e => this.setState({ value1: e.target.value })} type="number"/>
+<<<<<<< HEAD
             
+=======
+            </Cell>
+            <Cell >
+>>>>>>> parent of 7529233... add footer
               <Slider
               align="right" 
               step={1}
@@ -55,8 +66,8 @@ class Slider3 extends React.Component {
               value={Number(this.state.value1)}
               onChange={value1 => this.setState({value1})}
               />
-              
-            <p id='footer' align="center" > Скидки на оптовые покупки</p>
+            </Cell>
+          </List>
         </Div>
       );
     }

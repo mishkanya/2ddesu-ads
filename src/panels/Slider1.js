@@ -41,6 +41,7 @@ class Slider1 extends React.Component {
     render() {
       return (
         <Div>
+          <List>
           <Cell before = {'Часов в ленте: '}>
               <Input 
               disabled
@@ -58,6 +59,7 @@ class Slider1 extends React.Component {
               onChange={value1 => this.setState({value1})}
               />
             </Cell>
+          </List>
         </Div>
       );
     }
