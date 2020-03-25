@@ -61,7 +61,7 @@ class AdsPanel extends React.Component {
         bridge.send("VKWebAppCopyText", {text: Message});
         copy(Message +":3");
 
-        return 'За рекламу вы заплатите:'+ res;
+        //return 'За рекламу вы заплатите:'+ res;
     }
     render() {
       return (
@@ -71,7 +71,7 @@ class AdsPanel extends React.Component {
             <Checkbox1/>
             </Group>
             <Slider3/>
-      <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (console.log(this.calculate() ))}>Заказать рекламу</Button></Group>
+      <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
       </Div>
       );
     }

@@ -33,10 +33,10 @@ const MainScene = ({ id, go, fetchedUser }) => (
 	
 	<Panel id={id} separator={false}>
 		<PanelHeaderSimple >
-			<p className = 'header' ><Link href = 'https://vk.com/2ddesu_world'>Покупка рекламы в 2Ddesu</Link></p>
+			<p className = 'header' ><Link target="_blank" href = 'https://vk.com/2ddesu_world'>Покупка рекламы в 2Ddesu</Link></p>
 		</PanelHeaderSimple>
 		
-		<Group id='statistic' align="center" title='Статистика группы'><Link  href = 'https://vk.com/stats?gid=143313662'><p> Статистика </p></Link></Group>
+		<Group id='statistic' align="center" title='Статистика группы'><Link target="_blank" href = 'https://vk.com/stats?gid=143313662'><p> Статистика </p></Link></Group>
 		<AdsPanel/>
 	</Panel>
 );
