@@ -46,8 +46,7 @@ class MainScene extends React.Component {
                 <Footer>
                   <Card mode="shadow">
                     <Div>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Ads' }) }>Купить рекламу</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить вп</Button>
+                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить ВП</Button>
                       <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button>
                     </Div>
                   </Card>
@@ -57,13 +56,12 @@ class MainScene extends React.Component {
             </View>
             <View header activePanel="panel2.1" id="Vp">
               <Panel id="panel2.1">
-                <PanelHeader ><Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Предложение о вп</Link> </PanelHeader>
+                <PanelHeader ><Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Предложение о ВП</Link> </PanelHeader>
                 <VPPanel />
                 <Footer>
                   <Card mode="shadow">
                     <Div>
                       <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Ads' }) }>Купить рекламу</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить вп</Button>
                       <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button>
                     </Div>
                   </Card>
@@ -78,8 +76,7 @@ class MainScene extends React.Component {
                   <Card mode="shadow">
                     <Div>
                       <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Ads' }) }>Купить рекламу</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить вп</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button>
+                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить ВП</Button>
                     </Div>
                   </Card>
               </Footer>
