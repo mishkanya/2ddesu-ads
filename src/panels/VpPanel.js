@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes, { object, element } from 'prop-types';
+import PropTypes, { object, element, number } from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
+import Header from '@vkontakte/vkui/dist/components/Header/Header';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
@@ -9,50 +9,51 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
-// eslint-disable-next-line
-import persik from '../img/persik.png';
-import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
-import { List, Slider, Alert } from '@vkontakte/vkui';
+import { List, Alert } from '@vkontakte/vkui';
+import Slider from '@vkontakte/vkui/dist/components/Slider/Slider';
+import Select from '@vkontakte/vkui/dist/components/Select/Select';
+import View from '@vkontakte/vkui/dist/components/View/View';
+import Root from '@vkontakte/vkui/dist/components/Root/Root';
+import Link from '@vkontakte/vkui/dist/components/Link/Link';
+import './Persik.css';
+import copy from 'copy-to-clipboard';
 
+class VpPanel extends React.Component {
 
+    constructor (props) {
+      super(props);
 
-const MainScene = ({ id, go, fetchedUser }) => (
-	
-	<Panel id={id} separator={false}>
-		<PanelHeaderSimple left={<PanelHeaderClose />}>
-			<p>pay ads</p>
-		</PanelHeaderSimple>
-		<Group title="stats"> 
-		<List>
-			<Cell before = {'Часов в ленте: '}>
-				<Slider
-				disabled
-				id={'slider1'} 
-				align="right" 
-				step={1}
-                min={6}
-				max={24}
-			/>
-			</Cell>
-			<Cell >qq</Cell>
-		</List>
-		</Group>
-		
-	</Panel>
-);
+      this.state = {
+      };
+    }
 
-MainScene.propTypes = {
-	id: PropTypes.string.isRequired,
-	go: PropTypes.func.isRequired,
-	fetchedUser: PropTypes.shape({
-		photo_200: PropTypes.string,
-		first_name: PropTypes.string,
-		last_name: PropTypes.string,
-		city: PropTypes.shape({
-			title: PropTypes.string,
-		}),
-	}),
-};
+    options () {
+      let options = [];
+      for (let i = 0; i <= 10; i += 2) {
+        options.push(<option value={`${i / 10}`} key={`${i}`}>{i / 10}</option>)
+      }
+      return options;
+    }
 
-export default MainScene;
+    calculate()
+    {
+        var link = document.getElementById('StatsLink').getAttribute('value');
+        //var randomID = getRandomArbitrary(100000000,900000000)
+        var Message = 'Доброго времени суток, хочу предложить вп для @2ddesu_world. \nВот статистика группы: ' + link;
+        copy(Message);
+    }
+
+    render() {
+      return (
+      <Div className='vpDiv'>
+        Если статистика вашей группы схожа с <Link target="_blank" href = 'https://vk.com/stats?gid=143313662'>нашей</Link>, мы можем договориться о регулярном вп
+        <Group header={<Header mode="secondary">Ссылка на вашу статистику</Header>} ></Group>
+        <Input placeholder="vk.com/stats?gid=" id='StatsLink' type='url'></Input>
+        <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/id534664876" onClick={()=> (this.calculate())} >Написать рекламному менеджеру</Button></Group>
+	    </Div>
+      );
+    }
+  }
+
+  export default VpPanel

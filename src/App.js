@@ -3,12 +3,11 @@ import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
-import Home from './panels/AdPanel';
-import Persik from './panels/Persik';
 import Home2 from './panels/VpPanel';
+import MainScene from './panels/MainScene';
+import Button from '@vkontakte/vkui/dist/components/Button/Button';
 
 const App = () => {
-	var apiKey = null;
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
@@ -37,7 +36,7 @@ const App = () => {
 
 	return (
 		<View activePanel={activePanel} popout={popout} header={false}>
-			<Home id='home' fetchedUser={fetchedUser} go={go} />
+			<MainScene id='home' fetchedUser={fetchedUser} go={go} />
 		</View>
 	);
 }

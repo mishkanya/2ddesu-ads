@@ -10,7 +10,6 @@ import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
 // eslint-disable-next-line
-import persik from '../img/persik.png';
 import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
 import { List, Alert } from '@vkontakte/vkui';

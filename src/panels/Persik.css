@@ -7,8 +7,9 @@
 .header {
   font-family: "Aqum";
   font-style: normal;
+  font-size: 90%;
   src: url("../Fonts/Aqum.ttf");
-  color : #4a76a8 ;
+  color : #3f8ae0 ;
 }
 p#statistic 
 {
@@ -23,12 +24,16 @@ p.PCPAY{
   font-family: "Aqum";
   font-style: normal;
   src: url("../Fonts/Aqum.ttf");
-  color : #4a76a8 ;
+  color : #3f8ae0 ;
 }
-p.footer{
+.footer{
   
   font-family: "Arial";
   font-style: normal;
   src: url("../Fonts/Aqum.ttf");
-  color : #4a76a8 ;
+  color : #3f8ae0 ;
+}
+.vpDiv{
+  font-style: initial;
+  src: url("../Fonts/Aqum.ttf");
 }

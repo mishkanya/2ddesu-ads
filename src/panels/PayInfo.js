@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes, { object, element } from 'prop-types';
+import PropTypes, { object, element, number } from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
+import Header from '@vkontakte/vkui/dist/components/Header/Header';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
@@ -9,26 +9,25 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
-// eslint-disable-next-line
-import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
-import { List, Alert } from '@vkontakte/vkui';
+import { List, Alert, CellButton } from '@vkontakte/vkui';
 import Slider from '@vkontakte/vkui/dist/components/Slider/Slider';
 import Select from '@vkontakte/vkui/dist/components/Select/Select';
+import View from '@vkontakte/vkui/dist/components/View/View';
+import Root from '@vkontakte/vkui/dist/components/Root/Root';
+import VPPanel from './VpPanel';
+import Link from '@vkontakte/vkui/dist/components/Link/Link';
+import Card from '@vkontakte/vkui/dist/components/Card/Card';
 
-
-class Slider3 extends React.Component {
+class PayInfo extends React.Component {
 
     constructor (props) {
       super(props);
 
       this.state = {
-        value1: 1,
       };
     }
-    
 
-     s = () => this.state.value1;
     options () {
       let options = [];
       for (let i = 0; i <= 10; i += 2) {
@@ -39,31 +38,25 @@ class Slider3 extends React.Component {
 
     render() {
       return (
-        <Div>
-          <List>
-          <Cell before = {'Число постов: '} >
-              <Input 
-              disabled
-              id='input3'
-              min={1}
-              max={5} value={Number(this.state.value1)} onChange={e => this.setState({ value1: e.target.value })} type="number"/>
-            </Cell>
-            <Cell >
-              <Slider
-              align="right" 
-              step={1}
-              min={1}
-              max={5}
-              value={Number(this.state.value1)}
-              onChange={value1 => this.setState({value1})}
-              />
-              
-            <p className='footer' align="center" > Скидки на оптовые покупки</p>
-            </Cell>
-          </List>
-        </Div>
+      <Div >
+        <Card mode="outline">
+          <Header aside={"mishkanya"}>
+            <Link target="_blank" href = 'https://qiwi.com/n/MISHKANYA'>Qivi: </Link>
+          </Header>
+        </Card>
+        <Card mode="outline">
+          <Header aside={"4100 1405 7863 502"}>
+            <Link >ЯндексДеньги:</Link>
+          </Header>
+        </Card>
+        <Card mode="outline">
+          <Header aside={"372864591"}>
+            <Link target="_blank" href = 'https://vk.com/vkpay#action=transfer-to-user&user_id=372864591'>VKPay: </Link>
+          </Header>
+        </Card>
+	    </Div>
       );
     }
   }
 
-  export default Slider3
+  export default PayInfo

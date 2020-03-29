@@ -10,7 +10,6 @@ import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
 // eslint-disable-next-line
-import persik from '../img/persik.png';
 import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
 import { List, Alert } from '@vkontakte/vkui';
@@ -39,11 +38,14 @@ class Slider2 extends React.Component {
     render() {
       return (
         <Div>
-              <Input before = {'Часов в закрепе: '} 
+          <Cell before = {'Часов в закрепе: '} >
+            <Input 
               disabled
               id='input2'
               min={1}
               max={4} value={Number(this.state.value2)} onChange={e => this.setState({ value2: e.target.value })} type="number"/>
+            </Cell>
+              
             
               <Slider
               align="right" 

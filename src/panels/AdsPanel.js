@@ -11,11 +11,9 @@ import Slider1 from './Slider1';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import { objectOf, elementType, element, string } from 'prop-types';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
-
 import bridge from '@vkontakte/vk-bridge';
 import { platform, IOS } from '@vkontakte/vkui';
-import PCPay from './PCPay';
-
+import Card from '@vkontakte/vkui/dist/components/Card/Card';
 import copy from 'copy-to-clipboard';
 
 const osName = platform();
@@ -63,13 +61,16 @@ class AdsPanel extends React.Component {
  
         //return 'За рекламу вы заплатите:'+ res;
     }
+    //<Cell target="_blank" href = 'https://vk.com/stats?gid=143313662' align="center"><img alt="Logo"  width='auto' height={180} src = {stats}  alt="logo" /></Cell>
+           
     render() {
       return (
         <Div>
-            <Slider1 />
-            <Checkbox1/>
-            <Slider3/>
-      <Group align="center" > <Button target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
+          <Button target="_blank" href = 'https://vk.com/stats?gid=143313662' size="xl" mode="outline">Статистика</Button>
+            <Card mode="outline"><Slider1 /></Card>
+            <Card mode="outline"><Checkbox1/></Card>
+            <Card mode="outline"><Slider3/></Card> 
+      <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
       </Div>
       );
     }
