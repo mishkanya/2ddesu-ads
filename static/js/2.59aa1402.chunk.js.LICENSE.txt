@@ -12,7 +12,7 @@ object-assign
      */
 
 /*!
-     * Unidragger v2.3.0
+     * Unidragger v2.3.1
      * Draggable base class
      * MIT license
      */
@@ -29,7 +29,7 @@ object-assign
      * MIT license
      */
 
-/*! eruda v2.2.1 https://eruda.liriliri.io/ */
+/*! eruda v2.3.1 https://eruda.liriliri.io/ */
 
 /*! eruda-code v2.0.0 https://github.com/liriliri/eruda-code#readme */
 
