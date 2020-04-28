@@ -10,7 +10,6 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
-// eslint-disable-next-line
 import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
 import { List, Slider, Alert, Card } from '@vkontakte/vkui';
@@ -19,10 +18,14 @@ import Root from '@vkontakte/vkui/dist/components/Root/Root';
 import Footer from '@vkontakte/vkui/dist/components/Footer/Footer';
 import Icon24Message from '@vkontakte/icons/dist/24/message';
 import Link from '@vkontakte/vkui/dist/components/Link/Link';
+import { PanelHeaderBack } from '@vkontakte/vkui';
 
 import AdsPanel from './AdsPanel';
 import VPPanel from './VpPanel';
 import PayInfo from './PayInfo';
+//import Stickers from './stickers';
+import Stickers from './testStick';
+import Help from './Help';
 
 class MainScene extends React.Component {
 
@@ -30,7 +33,7 @@ class MainScene extends React.Component {
         super(props);
     
         this.state = {
-          activeView: 'Ads'
+          activeView: 'mainMenu'
         }
       }
       
@@ -40,46 +43,66 @@ class MainScene extends React.Component {
           <Root activeView={this.state.activeView}>
             <View activePanel="panel1.1" id="Ads">
               <Panel id="panel1.1">
-              <PanelHeader ><Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Покупка рекламы в 2Ddesu</Link> </PanelHeader>
-               <AdsPanel />
-                
-                <Footer>
-                  <Card mode="shadow">
-                    <Div>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить ВП</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button>
-                    </Div>
-                  </Card>
-                </Footer>
-              
-		        </Panel>
+                <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>
+                  <Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Покупка рекламы</Link> 
+                </PanelHeader>
+                <AdsPanel />
+		          </Panel>
             </View>
+
+
             <View header activePanel="panel2.1" id="Vp">
               <Panel id="panel2.1">
-                <PanelHeader ><Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Предложение о ВП</Link> </PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>
+                  <Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Сотрудничество</Link> 
+                </PanelHeader>
                 <VPPanel />
-                <Footer>
-                  <Card mode="shadow">
-                    <Div>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Ads' }) }>Купить рекламу</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button>
-                    </Div>
-                  </Card>
-              </Footer>
               </Panel>
             </View>
+
+
             <View header activePanel="panel3.1" id="Pay">
               <Panel id="panel3.1">
-              <PanelHeader ><Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Реквизиты</Link> </PanelHeader>
+                <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>
+                  <Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Реквизиты</Link> 
+                </PanelHeader>
                 <PayInfo />
-                <Footer>
-                  <Card mode="shadow">
-                    <Div>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Ads' }) }>Купить рекламу</Button>
-                      <Button size="l" mode="tertiary" level="3" component="a" onClick={ () => this.setState({ activeView: 'Vp' }) }>Предложить ВП</Button>
-                    </Div>
-                  </Card>
-              </Footer>
+              </Panel>
+            </View>
+
+
+            <View header activePanel="panel4.1" id="stickers">
+              <Panel id="panel4.1">
+                <PanelHeader  left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}><div className = 'header'>Стикеры группы</div></PanelHeader>
+                <Stickers/>
+              </Panel>
+            </View>
+
+
+            <View header activePanel="panel5.1" id="mainMenu">
+              <Panel id="panel5.1">
+                <PanelHeader >
+                  <Link align="center" target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>2Ddesu App</Link> 
+                </PanelHeader>
+                <Group align="center" >
+                  <Div >
+                    <Button onClick={ () => this.setState({ activeView: 'Ads' }) } mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
+                    <Button onClick={ () => this.setState({ activeView: 'Vp' }) } mode="tertiary" size="l" >Сотрудничество</Button>
+                  </Div>
+                  </Group>
+                  <Group align="center">
+                    <Div><Button mode="commerce" size="l" onClick={ () => this.setState({ activeView: 'stickers' }) }>Стикеры группы</Button></Div>
+                    <Div><Button size="l" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button></Div>
+                  </Group>
+                <Group align="center" ><Footer><Button onClick={ () => this.setState({ activeView: 'help' }) } mode="overlay_primary" size="l" >Помощь</Button></Footer></Group>
+               </Panel>
+            </View>
+
+            
+            <View header activePanel="panel6.1" id="help">
+              <Panel id="panel6.1">
+                <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>Помощь</PanelHeader>
+                <Help/>
               </Panel>
             </View>
           </Root>

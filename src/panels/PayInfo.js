@@ -41,7 +41,7 @@ class PayInfo extends React.Component {
       <Div >
         <Card mode="outline">
           <Header aside={"mishkanya"}>
-            <Link target="_blank" href = 'https://qiwi.com/n/MISHKANYA'>Qivi: </Link>
+            <Link target="_blank" href = 'https://qiwi.com/n/MISHKANYA'>Qivi(клик): </Link>
           </Header>
         </Card>
         <Card mode="outline">
@@ -51,7 +51,7 @@ class PayInfo extends React.Component {
         </Card>
         <Card mode="outline">
           <Header aside={"372864591"}>
-            <Link target="_blank" href = 'https://vk.com/vkpay#action=transfer-to-user&user_id=372864591'>VKPay: </Link>
+            <Link target="_blank" href = 'https://vk.com/vkpay#action=transfer-to-user&user_id=372864591'>VKPay(клик): </Link>
           </Header>
         </Card>
 	    </Div>

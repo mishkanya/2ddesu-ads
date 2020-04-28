@@ -46,7 +46,7 @@ class Slider1 extends React.Component {
               disabled
               id='input1'
               min={6}
-              max={24} value={Number(this.state.value1)} onChange={e => this.setState({ value1: e.target.value })} type="number"/>
+              max={24} value={Number(this.state.value1)} onChange={e => (this.props.setPrice(this.state.value1), this.setState({value1: e.target.value }))} type="number"/>
             </Cell>
             <Cell>
               <Slider
@@ -55,7 +55,7 @@ class Slider1 extends React.Component {
               min={6}
               max={24}
               value={Number(this.state.value1)}
-              onChange={value1 => this.setState({value1})}
+              onChange={value1 => (this.props.setPrice(), this.setState({value1}))}
               />
             </Cell>
           </List>
@@ -63,5 +63,6 @@ class Slider1 extends React.Component {
       );
     }
   }
+  
 
   export default Slider1

@@ -9,7 +9,6 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
-// eslint-disable-next-line
 import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
 import { List, Alert } from '@vkontakte/vkui';
@@ -41,12 +40,12 @@ class Slider3 extends React.Component {
       return (
         <Div>
           <List>
-          <Cell before = {'Число постов: '} >
+            <Cell before = {'Число постов: '} >
               <Input 
               disabled
               id='input3'
               min={1}
-              max={5} value={Number(this.state.value1)} onChange={e => this.setState({ value1: e.target.value })} type="number"/>
+              max={5} value={Number(this.state.value1)} onChange={e => (this.props.setPrice(), this.setState({ value1: e.target.value }))} type="number"/>
             </Cell>
             <Cell >
               <Slider
@@ -55,10 +54,9 @@ class Slider3 extends React.Component {
               min={1}
               max={5}
               value={Number(this.state.value1)}
-              onChange={value1 => this.setState({value1})}
+              onChange={value1 => (this.props.setPrice(), this.setState({value1}))}
               />
-              
-            <p className='footer' align="center" > Скидки на оптовые покупки</p>
+              <p className='footer' align="center" > Скидки на оптовые покупки</p>
             </Cell>
           </List>
         </Div>

@@ -15,7 +15,7 @@ import bridge from '@vkontakte/vk-bridge';
 import { platform, IOS } from '@vkontakte/vkui';
 import Card from '@vkontakte/vkui/dist/components/Card/Card';
 import copy from 'copy-to-clipboard';
-
+import {Text} from '@vkontakte/vkui';
 const osName = platform();
 
 class AdsPanel extends React.Component {
@@ -26,24 +26,19 @@ class AdsPanel extends React.Component {
       var s;
       this.state = {
         res : '',
-        input3 : 1
+        input3 : 1,
+        message: "Часов в ленте: 6 \nКоличество постов: 1 \nОбщая стоимость: 30",
+        viewPrice: false
       };
     }
-    
-    options () {
-      let options = [];
-      for (let i = 0; i <= 10; i += 2) {
-        options.push(<option value={`${i / 10}`} key={`${i}`}>{i / 10}</option>)
-      }
-      return options;
-    }
-    
-    calculate()
+    setPrice = (e) => 
     {
-      function getRandomArbitrary(min, max) {
-        return Math.random() * (max - min) + min;
-      }
-        var first = document.getElementById('input1').getAttribute('value');
+      this.setState({ message: this.getPrice() });
+    };
+    
+    getPrice()
+    {
+      var first = document.getElementById('input1').getAttribute('value');
         try
         {
           var second = Boolean(document.getElementById('checkbox1').getAttribute('value'))? document.getElementById('input2').getAttribute('value') : 0;
@@ -54,24 +49,22 @@ class AdsPanel extends React.Component {
         }
         var third = document.getElementById('input3').getAttribute('value');
         var res = (first * 5 + second * 5) * (1.05 - third * 0.05) * third;
-        //var randomID = getRandomArbitrary(100000000,900000000)
         var Message = "Часов в ленте: " + first + (second == 0? '' : '\nЗапись будет закреплена: ' + second ) + '\nКоличество постов: ' + third +'\nОбщая стоимость: ' + Math.round(res);
-        //bridge.send("VKWebAppCopyText", {text: Message}); 
-        copy(Message);
- 
-        //return 'За рекламу вы заплатите:'+ res;
+        return Message;
     }
-    //<Cell target="_blank" href = 'https://vk.com/stats?gid=143313662' align="center"><img alt="Logo"  width='auto' height={180} src = {stats}  alt="logo" /></Cell>
-           
-    render() {
+         
+    render() 
+    {
       return (
         <Div>
           <Button target="_blank" href = 'https://vk.com/stats?gid=143313662' size="xl" mode="outline">Статистика</Button>
-            <Card mode="outline"><Slider1 /></Card>
-            <Card mode="outline"><Checkbox1/></Card>
-            <Card mode="outline"><Slider3/></Card> 
-      <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.calculate())}>Заказать рекламу</Button></Group>
-      </Div>
+            <Card mode="outline"><Slider1 setPrice={this.setPrice} /></Card>
+            <Card mode="outline"><Checkbox1 setPrice={this.setPrice}/></Card>
+            <Card mode="outline"><Slider3 setPrice={this.setPrice}/></Card> 
+            <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line" }}>{this.state.message}</Div></Card> 
+            <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.getPrice() ,copy(this.getPrice))}>Заказать рекламу</Button></Group>
+            
+            </Div>
       );
     }
   }

@@ -43,18 +43,15 @@ class Slider2 extends React.Component {
               disabled
               id='input2'
               min={1}
-              max={4} value={Number(this.state.value2)} onChange={e => this.setState({ value2: e.target.value })} type="number"/>
-            </Cell>
-              
-            
-              <Slider
-              align="right" 
-              step={1}
-              min={1}
-              max={4}
-              value={Number(this.state.value2)}
-              onChange={value2 => this.setState({value2})}
-              />
+              max={4} value={Number(this.state.value2)} onChange={e => (this.props.setPrice(), this.setState({ value2: e.target.value }))} type="number"/>
+          </Cell>
+          <Slider
+            align="right" 
+            step={1}
+            min={1}
+            max={4}
+            value={Number(this.state.value2)}
+            onChange={value2 => (this.props.setPrice(), this.setState({value2}))}/>
         </Div>
       );
     }
