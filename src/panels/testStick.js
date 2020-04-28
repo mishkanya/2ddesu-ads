@@ -6,8 +6,7 @@ import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
-import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
-import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
+import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar'; 
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
 import { List, Alert, CellButton } from '@vkontakte/vkui';
@@ -77,7 +76,7 @@ class testStick extends React.Component {
     getToken()
     {
         bridge.send("VKWebAppInit", {});
-        bridge.subscribe((errore) => {
+        bridge.subscribe((error) => {
             if(error !== null)
             {
                 if(error.error_data.error_reason.error_code !== null && error.error_data.error_reason.error_code === 14)
@@ -89,6 +88,7 @@ class testStick extends React.Component {
                 }
                 else
                 {
+                    this.setState({mainText: error});
                     console.log(error);
                 }
             }

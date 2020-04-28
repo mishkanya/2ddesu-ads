@@ -8,7 +8,6 @@ import CellButton from '@vkontakte/vkui/dist/components/CellButton/CellButton';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
-import PanelHeaderSimple from '@vkontakte/vkui/dist/components/PanelHeaderSimple/PanelHeaderSimple';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
 import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
