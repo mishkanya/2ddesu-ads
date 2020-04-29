@@ -114,20 +114,17 @@ class Stickers extends React.Component {
         })
         .catch(error => 
         {
-            if(error !== null)
-            {
-                if(error.error_data.error_reason.error_code === 14)
-                {
-                    this.setState({mainText: "Введите капчу"});
-                    this.setState({viewCaptcha: true});
-                    this.setState({captchaImg: error.error_data.error_reason.captcha_img});
-                    this.setState({captchaSid: error.error_data.error_reason.captcha_sid});
-                }
-                else
-                {
-                    console.log(error);
-                }
-            }
+          if(error.error_data.error_reason.error_code === 14)
+          {
+            this.setState({mainText: "Введите капчу"});
+            this.setState({viewCaptcha: true});
+            this.setState({captchaImg: error.error_data.error_reason.captcha_img});
+            this.setState({captchaSid: error.error_data.error_reason.captcha_sid});
+          }
+          else
+          {
+            console.log(error);
+          }
         });
     }
     submiteCaptcha()
