@@ -68,7 +68,7 @@ class Stickers extends React.Component {
         bridge.send("VKWebAppJoinGroup", {"group_id": 143313662}).then(data => {
             this.getToken()
             //console.log("u in group");
-            this.setState({mainText: "Разрешие что бы мы автоматически добавили вам стикеры"});
+            this.setState({mainText: "Нам необходим доступ к вашим документам, что бы мы автоматически добавили вам стикеры"});
           })
           .catch(error => {
             this.setState({mainText: "Вы не подписались!"});
@@ -114,17 +114,24 @@ class Stickers extends React.Component {
         })
         .catch(error => 
         {
-          if(error.error_data.error_reason.error_code === 14)
-          {
-            this.setState({mainText: "Введите капчу"});
-            this.setState({viewCaptcha: true});
-            this.setState({captchaImg: error.error_data.error_reason.captcha_img});
-            this.setState({captchaSid: error.error_data.error_reason.captcha_sid});
+          try{
+            if(error.error_data.error_reason.error_code === 14)
+            {
+              this.setState({mainText: "Введите капчу"});
+              this.setState({viewCaptcha: true});
+              this.setState({captchaImg: error.error_data.error_reason.captcha_img});
+              this.setState({captchaSid: error.error_data.error_reason.captcha_sid});
+            }
+            else
+            {
+              console.log(error);
+            }
           }
-          else
-          {
+          catch{
             console.log(error);
+            console.log("Blyaaaaaaaaaaaaaat`");
           }
+          
         });
     }
     submiteCaptcha()
