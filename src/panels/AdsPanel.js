@@ -9,6 +9,7 @@ import Slider3 from './Slider3';
 import Checkbox1 from './CheckBox1';
 import Slider1 from './Slider1';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
+import CellButton from '@vkontakte/vkui/dist/components/CellButton/CellButton';
 import { objectOf, elementType, element, string } from 'prop-types';
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
 import bridge from '@vkontakte/vk-bridge';
@@ -57,14 +58,13 @@ class AdsPanel extends React.Component {
     {
       return (
         <Div>
-          <Button target="_blank" href = 'https://vk.com/stats?gid=143313662' size="xl" mode="outline">Статистика</Button>
-            <Card mode="outline"><Slider1 setPrice={this.setPrice} /></Card>
-            <Card mode="outline"><Checkbox1 setPrice={this.setPrice}/></Card>
-            <Card mode="outline"><Slider3 setPrice={this.setPrice}/></Card> 
-            <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line" }}>{this.state.message}</Div></Card> 
-            <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.getPrice() ,copy(this.getPrice))}>Заказать рекламу</Button></Group>
-            
-            </Div>
+          <CellButton align="center" target="_blank" href = 'https://vk.com/stats?gid=143313662' size="xl" mode="outline">Статистика</CellButton>
+          <Card mode="outline"><Slider1 setPrice={this.setPrice} /></Card>
+          <Card mode="outline"><Checkbox1 setPrice={this.setPrice}/></Card>
+          <Card mode="outline"><Slider3 setPrice={this.setPrice}/></Card> 
+          <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line" }}>{this.state.message}</Div></Card> 
+          <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.getPrice() ,copy(this.getPrice))}>Заказать рекламу</Button></Group>
+        </Div>
       );
     }
   }
