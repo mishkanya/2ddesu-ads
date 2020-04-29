@@ -129,7 +129,7 @@ class Stickers extends React.Component {
           }
           catch{
             console.log(error);
-            console.log("Blyaaaaaaaaaaaaaat`");
+            console.log("Blyaaaaaaaaaaaaaaыt`");
           }
           
         });
