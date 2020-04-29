@@ -112,7 +112,18 @@ class testStick extends React.Component {
         })
         .catch(error => 
         {
-            if(error !== null)
+          try
+          {
+            this.setState({mainText: "Введите капчу"});
+            this.setState({viewCaptcha: true});
+            this.setState({captchaImg: error.error_data.error_reason.captcha_img});
+            this.setState({captchaSid: error.error_data.error_reason.captcha_sid});
+          }
+          catch
+          {
+            console.log(error);
+          }
+            /*if(error !== null)
             {
                 if(error.error_data.error_reason.error_code === 14)
                 {
@@ -125,7 +136,7 @@ class testStick extends React.Component {
                 {
                     console.log(error);
                 }
-            }
+            }*/
         });
     }
     submiteCaptcha()
