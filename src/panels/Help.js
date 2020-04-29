@@ -104,10 +104,13 @@ class Help extends React.Component {
 
 
           <Group header={<Button mode="tertiary" onClick={()=> (this.HideHelp(), this.setState((state) => {
-            return {other: !this.state.other}
-          }))}>Другое</Button>}>
+              return {other: !this.state.other}
+            }))}>Другое</Button>}>
             {this.state.other? 
-            <Div>По всем вопросам и предложениям {<Link href="https://vk.com/mishkanya">@mishkanya</Link>} или в группу </Div>
+            <Div>
+              <div>По всем вопросам и предложениям {<Link href="https://vk.com/mishkanya">@mishkanya</Link>} или в группу </div>
+              <div>Обсуждаем новые идеи и развитие группы в  {<Link href="https://vk.me/join/AJQ1d2PdURbMRBCh9XsRfjer">беседе</Link>}</div>
+            </Div>
             : null}
           </Group>
       </Div>

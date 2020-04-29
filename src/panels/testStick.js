@@ -40,7 +40,7 @@ class testStick extends React.Component {
             textValue:'',
             mainText:'Нажмите что бы получить стикеры',
 
-            viewCaptcha:false,
+            viewCaptcha: false,
             captchaSid:0,
             captchaImg:"",
       };
@@ -112,18 +112,7 @@ class testStick extends React.Component {
         })
         .catch(error => 
         {
-          try
-          {
-            this.setState({mainText: "Введите капчу"});
-            this.setState({viewCaptcha: true});
-            this.setState({captchaImg: error.error_data.error_reason.captcha_img});
-            this.setState({captchaSid: error.error_data.error_reason.captcha_sid});
-          }
-          catch
-          {
-            console.log(error);
-          }
-            /*if(error !== null)
+            if(error !== null)
             {
                 if(error.error_data.error_reason.error_code === 14)
                 {
@@ -136,7 +125,7 @@ class testStick extends React.Component {
                 {
                     console.log(error);
                 }
-            }*/
+            }
         });
     }
     submiteCaptcha()
@@ -176,7 +165,7 @@ class testStick extends React.Component {
                         alt="Logo"/>}>
 
                         <Input onChange={e => (this.setState({textValue: e.target.value }))} value={this.state.textValue} placeholder = "Введите капчу"/>
-                        <Button onClick={()=> (this.setState({textValue: "" }), this.submiteCaptcha())}>Отправить</Button>
+                        <Button size="xl" onClick={()=> (this.setState({textValue: "" }), this.submiteCaptcha())}>Отправить</Button>
                     </Cell>
                 </Card>
                 :null

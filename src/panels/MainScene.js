@@ -18,6 +18,8 @@ import Footer from '@vkontakte/vkui/dist/components/Footer/Footer';
 import Icon24Message from '@vkontakte/icons/dist/24/message';
 import Link from '@vkontakte/vkui/dist/components/Link/Link';
 import { PanelHeaderBack } from '@vkontakte/vkui';
+import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
+import bridge from '@vkontakte/vk-bridge';
 
 import AdsPanel from './AdsPanel';
 import VPPanel from './VpPanel';
@@ -26,18 +28,36 @@ import PayInfo from './PayInfo';
 import Stickers from './testStick';
 import Help from './Help';
 
+let userinfo;
+
+
 class MainScene extends React.Component {
 
     constructor(props) {
         super(props);
     
         this.state = {
+          userInfo : "",
           activeView: 'mainMenu'
+        }
+      }
+
+      getUserName(){
+        try
+        {
+          return this.state.userInfo.first_name;
+        }
+        catch{
+          return "милый подписчик";
         }
       }
       
     
       render() {
+        
+        {bridge.send("VKWebAppGetUserInfo", {}).then(user_data => {
+          this.setState({userInfo : user_data});
+        })};
         return (
           <Root activeView={this.state.activeView}>
             <View activePanel="panel1.1" id="Ads">
@@ -83,6 +103,16 @@ class MainScene extends React.Component {
                 <PanelHeader >
                   <Link align="center" target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>2Ddesu App</Link> 
                 </PanelHeader>
+
+                <Group>
+                  <Card  mode="tint">
+                    <Cell align="center">
+                      <Div><Avatar src={this.state.userInfo.photo_200} size={80}/> Привет {this.getUserName()}! Мы ждали тебя:3 </Div>
+                    </Cell>
+                  </Card>
+                </Group>
+                
+
                 <Group align="center" >
                   <Div >
                     <Button onClick={ () => this.setState({ activeView: 'Ads' }) } mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
@@ -93,7 +123,7 @@ class MainScene extends React.Component {
                     <Div><Button mode="commerce" size="l" onClick={ () => this.setState({ activeView: 'stickers' }) }>Стикеры группы</Button></Div>
                     <Div><Button size="l" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button></Div>
                   </Group>
-                <Group align="center" ><Footer><Button onClick={ () => this.setState({ activeView: 'help' }) } mode="overlay_primary" size="l" >Помощь</Button></Footer></Group>
+                <Group align="center" ><Footer><Button onClick={ () => this.setState({ activeView: 'help' }) } mode="tertiary " size="l" >Помощь</Button></Footer></Group>
                </Panel>
             </View>
 

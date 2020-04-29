@@ -58,12 +58,12 @@ class AdsPanel extends React.Component {
     {
       return (
         <Div>
-          <CellButton align="center" target="_blank" href = 'https://vk.com/stats?gid=143313662' size="xl" mode="outline">Статистика</CellButton>
-          <Card mode="outline"><Slider1 setPrice={this.setPrice} /></Card>
-          <Card mode="outline"><Checkbox1 setPrice={this.setPrice}/></Card>
-          <Card mode="outline"><Slider3 setPrice={this.setPrice}/></Card> 
-          <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line" }}>{this.state.message}</Div></Card> 
-          <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (this.getPrice() ,copy(this.getPrice))}>Заказать рекламу</Button></Group>
+          <Button mode="tertiary " align="center" target="_blank" href = 'https://vk.com/stats?gid=143313662' size="xl">Статистика</Button>
+          <Group mode="outline"><Slider1 setPrice={this.setPrice} /></Group>
+          <Group mode="outline"><Checkbox1 setPrice={this.setPrice}/></Group>
+          <Group mode="outline"><Slider3 setPrice={this.setPrice}/></Group> 
+          <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line"}}>{this.state.message}</Div></Card> 
+          <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (copy(this.getPrice))}>Заказать рекламу</Button></Group>
         </Div>
       );
     }
