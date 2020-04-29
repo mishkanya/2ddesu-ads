@@ -24,8 +24,7 @@ import bridge from '@vkontakte/vk-bridge';
 import AdsPanel from './AdsPanel';
 import VPPanel from './VpPanel';
 import PayInfo from './PayInfo';
-//import Stickers from './stickers';
-import Stickers from './testStick';
+import Stickers from './Stickers';
 import Help from './Help';
 
 let userinfo;
@@ -38,7 +37,7 @@ class MainScene extends React.Component {
     
         this.state = {
           userInfo : "",
-          activeView: 'mainMenu'
+          activeView: 'stickers'
         }
       }
 
