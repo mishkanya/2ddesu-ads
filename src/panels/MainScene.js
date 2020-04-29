@@ -38,7 +38,7 @@ class MainScene extends React.Component {
     
         this.state = {
           userInfo : "",
-          activeView: 'mainMenu'
+          activeView: 'Vp'
         }
       }
 
