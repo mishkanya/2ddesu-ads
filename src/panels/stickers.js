@@ -208,7 +208,7 @@ class Stickers extends React.Component {
           }
           {this.state.isMobilVersion?
             <Div>
-              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в <Link target="_blank" href="https://m.vk.com/app7367088_372864591">веб версии приложения</Link>
+              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в <Link target="_blank" href="vk.cc/atxA98">веб версии приложения</Link>
             </Div>
           :
             <Card align="center" onClick={()=> (this.checkSub())}  >
