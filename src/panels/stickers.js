@@ -23,14 +23,16 @@ import bridge from '@vkontakte/vk-bridge';
 import stickerImg from '../img/tickers.png'
 
 const groupId = "-194700016";
-let DocsId = ["546651505", "546651721", "546651975", "546652187", "546652555", "546652844", "546653024", "546653202", "546653366", "546653575", "546653818", "546654092", "546654256", "546654391", "546654557", "546654736", "546654954", "546655073", "546655226", "546655336", "546655485", "546655786", "546655860", "546655965", "546656406", "546668774"];
+let DocsId = ["546651505", "546651721", "546651975", "546652187", "546652555", "546652844", "546653024", "546653202", "546653366", "546653575", "546653818", "546654092", "546654256", "546654391", "546654557", "546654736", "546654954", "546655073", "546655226", "546655336", "546655485", "546655786", "546655860", "546655965", "546656406", "546668774", "547564255"];
         
 class Stickers extends React.Component {
 
     constructor (props) 
     {
       super(props);
-
+      setTimeout(function () {
+        this.checkPlatform();
+      }.bind(this), 200);
       this.state = 
       {
             processBar : false, 
@@ -39,6 +41,7 @@ class Stickers extends React.Component {
             token: "",
             textValue:'',
             mainText:'Нажмите что бы получить стикеры',
+            isMobilVersion: true,
 
             viewCaptcha: false,
             captchaSid:0,
@@ -53,6 +56,20 @@ class Stickers extends React.Component {
         options.push(<option value={`${i / 10}`} key={`${i}`}>{i / 10}</option>)
       }
       return options;
+    }
+    checkPlatform(){
+      this.setState({isMobilVersion : bridge.send("VKWebAppGetClientVersion", {})
+        .then(data=>{
+          console.log(data);
+          if(data.platform == "web")
+          {
+            this.setState({isMobilVersion: false});
+          }
+        })
+        .catch(error=>{
+          console.log(error);
+        })
+      });
     }
 
     checkSub()
@@ -173,8 +190,9 @@ class Stickers extends React.Component {
           <Div>
             <Div>{this.state.mainText}</Div>
             {this.state.processBar? 
-                <Div><Progress value={this.state.process}/></Div> 
-                : null 
+              <Div><Progress value={this.state.process}/></Div> 
+            :
+              null 
             } 
           </Div>
           {this.state.viewCaptcha === true? 
@@ -188,10 +206,17 @@ class Stickers extends React.Component {
             </Card>
             :null
           }
-          <Card align="center" onClick={()=> (this.checkSub())}  >
-            <img  src={stickerImg} width={"60%"} height={"60%"}></img>
-            <Button mode="commerce" size="xl"   >Получить стикеры</Button>
-          </Card>
+          {this.state.isMobilVersion?
+            <Div>
+              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в <Link target="_blank" href="https://m.vk.com/app7367088_372864591">веб версии приложения</Link>
+            </Div>
+          :
+            <Card align="center" onClick={()=> (this.checkSub())}  >
+              <img  src={stickerImg} width={"60%"} height={"60%"}></img>
+              <Button mode="commerce" size="xl"   >Получить стикеры</Button>
+            </Card>
+          }
+          
         </Div>
       );
     }
