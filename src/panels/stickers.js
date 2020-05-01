@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, Text, StyleSheet, Linking } from 'react-native';
 import PropTypes, { object, element, number, string } from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import Header from '@vkontakte/vkui/dist/components/Header/Header';
@@ -183,6 +184,10 @@ class Stickers extends React.Component {
         this.setState({mainText: 'Капча разгаданна не правильно'});
       });
     }
+    loadInBrowser = () => {
+      Linking.openURL("https://vk.com/app7367088_372864591");
+      //window.open('https://vk.com/app7367088_372864591', '_system')
+    };
 
     render() {
       return (
@@ -208,7 +213,7 @@ class Stickers extends React.Component {
           }
           {this.state.isMobilVersion?
             <Div>
-              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в <Button onClick={window.open('https://vk.com/app7367088_372864591', '_system')}>веб версии приложения</Button>
+              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в <Link onClick={this.loadInBrowser}>веб версии приложения</Link>
             </Div>
           :
             <Card align="center" onClick={()=> (this.checkSub())}  >
