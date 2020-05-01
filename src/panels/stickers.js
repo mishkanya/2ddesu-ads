@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Linking } from 'react-native';
+import {Linking } from 'react-native';
 import PropTypes, { object, element, number, string } from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import Header from '@vkontakte/vkui/dist/components/Header/Header';
