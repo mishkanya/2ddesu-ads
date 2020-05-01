@@ -212,7 +212,7 @@ class Stickers extends React.Component {
           }
           {this.state.isMobilVersion?
             <Div>
-              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в веб версии приложения<Buttom size="l" onClick={this.loadInBrowser}>нажми что бы скопировать ссылку</Buttom>
+              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в веб версии приложения<Button size="l" onClick={this.loadInBrowser}>нажми что бы скопировать ссылку</Button>
             </Div>
           :
             <Card align="center" onClick={()=> (this.checkSub())}  >
