@@ -21,6 +21,7 @@ import Progress from '@vkontakte/vkui/dist/components/Progress/Progress';
 import Text from '@vkontakte/vkui/dist/components/Typography/Caption/Caption';
 import bridge from '@vkontakte/vk-bridge';
 import stickerImg from '../img/tickers.png'
+import copy from 'copy-to-clipboard';
 
 const groupId = "-194700016";
 let DocsId = ["546651505", "546651721", "546651975", "546652187", "546652555", "546652844", "546653024", "546653202", "546653366", "546653575", "546653818", "546654092", "546654256", "546654391", "546654557", "546654736", "546654954", "546655073", "546655226", "546655336", "546655485", "546655786", "546655860", "546655965", "546656406", "546668774", "547564255"];
@@ -185,7 +186,7 @@ class Stickers extends React.Component {
     }
     loadInBrowser = () => 
     {
-
+      copy("https://vk.com/app7367088_372864591");
     };
 
     render() {
@@ -212,7 +213,7 @@ class Stickers extends React.Component {
           }
           {this.state.isMobilVersion?
             <Div>
-              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в веб версии приложения<Button size="l" onClick={this.loadInBrowser}>нажми что бы скопировать ссылку</Button>
+              В мобильном приложениии ВКонтакте выдача стикеров не доступна, но вы можете получить их в веб версии приложения<Button size="l" onClick={this.loadInBrowser}>Нажми что бы скопировать ссылку</Button>
             </Div>
           :
             <Card align="center" onClick={()=> (this.checkSub())}  >
