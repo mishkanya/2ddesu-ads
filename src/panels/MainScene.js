@@ -16,7 +16,7 @@ import Icon24Market from '@vkontakte/icons/dist/24/market';///реклама
 import Icon24Work from '@vkontakte/icons/dist/24/work';///вп
 import Icon24Gift from '@vkontakte/icons/dist/24/gift';///стикеры
 import Icon24Note from '@vkontakte/icons/dist/24/note';///реквизиты
-import Icon24Error from '@vkontakte/icons/dist/24/error';///помощь
+import Icon24Info from '@vkontakte/icons/dist/24/info';///помощь
 //#endregion
 
 
@@ -121,7 +121,7 @@ class MainScene extends React.Component {
               <Div><Button before={<Icon24Note width={20} height={20}/>} size="l" onClick={() => this.setState({ activeView: 'Pay' })}>Реквизиты</Button></Div>
             </Group>
             <Group align="center" >
-              <Button before={<Icon24Error width={20} height={20}/>} onClick={() => this.setState({ activeView: 'help' })} mode="tertiary " size="l" >Помощь</Button>
+              <Button before={<Icon24Info width={20} height={20}/>} onClick={() => this.setState({ activeView: 'help' })} mode="tertiary " size="l" >Помощь</Button>
             </Group>
           </Panel>
         </View>
@@ -131,7 +131,7 @@ class MainScene extends React.Component {
           <Panel id="panel6.1">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               {/*<PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>Помощь</PanelHeader>*/}
-              <Button after={<Icon24Error width={20} height={20}/>} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Помощь</Button>
+              <Button after={<Icon24Info width={20} height={20}/>} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Помощь</Button>
             </PanelHeader>
             <Help />
           </Panel>
