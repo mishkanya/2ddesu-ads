@@ -116,7 +116,7 @@ class Stickers extends React.Component {
       bridge.send("VKWebAppCallAPIMethod", {"method": "docs.add", "request_id": "32test", "params": {"owner_id": groupId,"doc_id" : DocsId[this.state.docId], "v":"5.103", "access_token":token}})
       .then(e=> 
       {
-        console.log(this.state.docId + "стикеров из" + DocsId.length + " добавлены");
+        console.log((this.state.docId + 1) + " стикеров из " + DocsId.length + " добавлены");
         this.setState({docId: this.state.docId + 1});
         if(this.state.docId < DocsId.length)
         {
@@ -168,6 +168,7 @@ class Stickers extends React.Component {
       .then(e =>
       {
         console.log("Корректный ввод каптчи");
+        console.log((this.state.docId + 1) + " стикеров из " + DocsId.length + " добавлены");
         this.setState({viewCaptcha: false});
         this.setState({docId: this.state.docId + 1});
         if(this.state.docId < DocsId.length)

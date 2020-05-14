@@ -27,7 +27,14 @@ import PayInfo from './PayInfo';
 import Stickers from './Stickers';
 import Help from './Help';
 
-let userinfo;
+
+//#region icons
+import Icon24Work from '@vkontakte/icons/dist/24/work';
+import Icon24MarketOutline from '@vkontakte/icons/dist/24/market_outline';
+import Icon24Gift from '@vkontakte/icons/dist/24/gift';
+import Icon24Help from '@vkontakte/icons/dist/24/help';
+import Icon24Note from '@vkontakte/icons/dist/24/note';
+//#endregion
 
 
 class MainScene extends React.Component {
@@ -62,7 +69,7 @@ class MainScene extends React.Component {
             <View activePanel="panel1.1" id="Ads">
               <Panel id="panel1.1">
                 <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>
-                  <Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Покупка рекламы</Link> 
+                  <Link  target="_blank" href = 'https://vk.com/club143313662' className = 'header'></Link> 
                 </PanelHeader>
                 <AdsPanel />
 		          </Panel>
@@ -72,7 +79,7 @@ class MainScene extends React.Component {
             <View header activePanel="panel2.1" id="Vp">
               <Panel id="panel2.1">
                 <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>
-                  <Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Сотрудничество</Link> 
+                  <Link target="_blank" href = 'https://vk.com/club143313662' className = 'header'>Сотрудничество</Link> 
                 </PanelHeader>
                 <VPPanel />
               </Panel>
@@ -82,7 +89,7 @@ class MainScene extends React.Component {
             <View header activePanel="panel3.1" id="Pay">
               <Panel id="panel3.1">
                 <PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>
-                  <Link target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>Реквизиты</Link> 
+                  <Link target="_blank" href = 'https://vk.com/club143313662' className = 'header'>Реквизиты</Link> 
                 </PanelHeader>
                 <PayInfo />
               </Panel>
@@ -100,7 +107,7 @@ class MainScene extends React.Component {
             <View header activePanel="panel5.1" id="mainMenu">
               <Panel id="panel5.1">
                 <PanelHeader >
-                  <Link align="center" target="_blank" href = 'https://vk.com/2ddesu_world' className = 'header'>2Ddesu App</Link> 
+                  <Link align="center" target="_blank" href = 'https://vk.com/club143313662' className = 'header'>2Ddesu App</Link> 
                 </PanelHeader>
 
                 <Group>
@@ -114,15 +121,15 @@ class MainScene extends React.Component {
 
                 <Group align="center" >
                   <Div >
-                    <Button onClick={ () => this.setState({ activeView: 'Ads' }) } mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
-                    <Button onClick={ () => this.setState({ activeView: 'Vp' }) } mode="tertiary" size="l" >Сотрудничество</Button>
+                    <Button before={<Icon24MarketOutline/>} onClick={ () => this.setState({ activeView: 'Ads' }) } mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
+                    <Button before={<Icon24Work/>} onClick={ () => this.setState({ activeView: 'Vp' }) } mode="tertiary" size="l" >Сотрудничество</Button>
                   </Div>
                   </Group>
                   <Group align="center">
-                    <Div><Button mode="commerce" size="l" onClick={ () => this.setState({ activeView: 'stickers' }) }>Стикеры группы</Button></Div>
-                    <Div><Button size="l" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button></Div>
+                    <Div><Button before={<Icon24Gift/>} mode="commerce" size="l" onClick={ () => this.setState({ activeView: 'stickers' }) }>Стикеры группы</Button></Div>
+                    <Div><Button before={<Icon24Note/>} size="l" onClick={ () => this.setState({ activeView: 'Pay' }) }>Реквизиты</Button></Div>
                   </Group>
-                <Group align="center" ><Footer><Button onClick={ () => this.setState({ activeView: 'help' }) } mode="tertiary " size="l" >Помощь</Button></Footer></Group>
+                <Group align="center" ><Footer><Button before={<Icon24Help/>} onClick={ () => this.setState({ activeView: 'help' }) } mode="tertiary " size="l" >Помощь</Button></Footer></Group>
                </Panel>
             </View>
 

@@ -109,7 +109,7 @@ class Help extends React.Component {
             }))}>Другое</Button>}>
             {this.state.other? 
             <Div>
-              <Div>По всем вопросам и предложениям {<Link href="https://vk.com/mishkanya">@mishkanya</Link>} или в {<Link href="https://vk.com/2ddesu_world">группу</Link>} </Div>
+              <Div>По всем вопросам и предложениям {<Link href="https://vk.com/mishkanya">@mishkanya</Link>} или в {<Link href="https://vk.com/club143313662">группу</Link>} </Div>
               <Div>Обсуждаем новые идеи и развитие группы в  {<Link href="https://vk.me/join/AJQ1d2PdURbMRBCh9XsRfjer">беседе</Link>}</Div>
             </Div>
             : null}

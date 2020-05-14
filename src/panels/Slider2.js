@@ -8,7 +8,6 @@ import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar'; 
 import Input from '@vkontakte/vkui/dist/components/Input/Input';
-// eslint-disable-next-line
 import './Persik.css';
 import PanelHeaderClose  from '@vkontakte/vkui/dist/components/PanelHeaderClose/PanelHeaderClose';
 import { List, Alert } from '@vkontakte/vkui';

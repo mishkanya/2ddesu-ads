@@ -61,7 +61,7 @@ class VpPanel extends React.Component {
             <Div>Если статистика вашей группы схожа с <Link target="_blank" href = 'https://vk.com/stats?gid=143313662'>нашей</Link>, мы можем договориться о регулярном вп</Div>
             <Group header={<Header mode="secondary">Ссылка на вашу статистику</Header>} ></Group>
             <Input value={this.state.statsLink} onChange={e => (this.setState({statsLink : e.target.value}))} placeholder="vk.com/stats?gid=" id='StatsLink' type='url'></Input>
-            <Group align="center" > <Button href="https://vk.me/2ddesu_world" size="xl" target="_blank"  onClick={()=> (copy(this.regularVp()))} >Написать </Button></Group>
+            <Group align="center" > <Button href="https://vk.me/club143313662" size="xl" target="_blank"  onClick={()=> (copy(this.regularVp()))} >Написать </Button></Group>
           </Card>
         </Group>
         <Group>
@@ -73,7 +73,7 @@ class VpPanel extends React.Component {
             <Group header={<Header mode="secondary">Число просмотров</Header>} ></Group>
             <Input type="number" value={this.state.viwersSt} onChange={e => (this.setState({viwersSt : e.target.value}))} id='viewers' min="100" max="3000" step={50}></Input>
 
-            <Group align="center" > <Button href="https://vk.me/2ddesu_world" size="xl" target="_blank"  onClick={()=> (copy(this.viwerVp()))} >Написать </Button></Group>
+            <Group align="center" > <Button href="https://vk.me/club143313662" size="xl" target="_blank"  onClick={()=> (copy(this.viwerVp()))} >Написать </Button></Group>
           </Card>
         </Group>
       </Div>

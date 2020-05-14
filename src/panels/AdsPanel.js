@@ -1,27 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
-import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
-import { List, Alert, ANDROID } from '@vkontakte/vkui';
-import Checkbox from '@vkontakte/vkui/dist/components/Checkbox/Checkbox'
 import Slider3 from './Slider3';
 import Checkbox1 from './CheckBox1';
 import Slider1 from './Slider1';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
-import CellButton from '@vkontakte/vkui/dist/components/CellButton/CellButton';
-import { objectOf, elementType, element, string } from 'prop-types';
-import Input from '@vkontakte/vkui/dist/components/Input/Input';
-import bridge from '@vkontakte/vk-bridge';
-import { platform, IOS } from '@vkontakte/vkui';
 import Card from '@vkontakte/vkui/dist/components/Card/Card';
 import copy from 'copy-to-clipboard';
-import {Text} from '@vkontakte/vkui';
-const osName = platform();
 
-class AdsPanel extends React.Component {
+//#region icons
+import Icon24MarketOutline from '@vkontakte/icons/dist/24/market_outline';
+//#endregion
 
-    
+class AdsPanel extends React.Component 
+{
+
     constructor (props) {
       super(props);
       var s;
@@ -63,7 +56,7 @@ class AdsPanel extends React.Component {
           <Group mode="outline"><Checkbox1 setPrice={this.setPrice}/></Group>
           <Group mode="outline"><Slider3 setPrice={this.setPrice}/></Group> 
           <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line"}}>{this.state.message}</Div></Card> 
-          <Group align="center" > <Button size="xl" target="_blank" href="https://vk.me/2ddesu_world"  onClick={()=> (copy(this.getPrice))}>Заказать рекламу</Button></Group>
+          <Group align="center" > <Button size="xl" target="_blank" href="https://vk.com/club143313662"  onClick={()=> (copy(this.getPrice))}>Заказать рекламу</Button></Group>
         </Div>
       );
     }
