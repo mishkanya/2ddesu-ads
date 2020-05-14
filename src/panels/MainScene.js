@@ -21,12 +21,13 @@ import { PanelHeaderBack } from '@vkontakte/vkui';
 import Text from '@vkontakte/vkui/dist/components/Typography/Text/Text';
 import bridge from '@vkontakte/vk-bridge';
 
+//#region panels
 import AdsPanel from './AdsPanel';
 import VPPanel from './VpPanel';
 import PayInfo from './PayInfo';
 import Stickers from './Stickers';
 import Help from './Help';
-
+//#endregion
 
 //#region icons
 import Icon24Work from '@vkontakte/icons/dist/24/work';
