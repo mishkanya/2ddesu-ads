@@ -3,12 +3,10 @@ import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
-import Home2 from './panels/VpPanel';
 import MainScene from './panels/MainScene';
-import Button from '@vkontakte/vkui/dist/components/Button/Button';
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('home');
+	const [activePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
@@ -28,7 +26,7 @@ const App = () => {
 		fetchData();
 	}, []);
 
-	const go = e => {
+	const go = () => {
 		bridge.send("VKWebAppViewHide",{});
 		console.log("i`m go");
 		bridge.subscribe((e) => (console.log(e)));
