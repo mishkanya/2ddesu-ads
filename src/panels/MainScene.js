@@ -108,7 +108,7 @@ class MainScene extends React.Component {
             <View header activePanel="panel5.1" id="mainMenu">
               <Panel id="panel5.1">
                 <PanelHeader >
-                  <Link align="center" target="_blank" href = 'https://vk.com/club143313662' className = 'header'>2Ddesu App</Link> 
+                  <Link align="center" target="_blank" href = 'https://vk.com/club143313662' className = 'header'>2DDesu App</Link> 
                 </PanelHeader>
 
                 <Group>
