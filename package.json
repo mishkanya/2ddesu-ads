@@ -1,6 +1,6 @@
 {
   "name": "2ddesu-pay-ads",
-  "version": "2.0.1",
+  "version": "3.0.1",
   "description": "",
   "main": "index.js",
   "homepage": "./",
@@ -15,18 +15,18 @@
   "license": "MIT",
   "devDependencies": {
     "cross-env": "^5.2.1",
-    "react-hot-loader": "^4.12.20",
+    "react-hot-loader": "^4.12.21",
     "react-scripts": "^3.4.1"
   },
   "dependencies": {
-    "@vkontakte/icons": "^1.20.2",
-    "@vkontakte/vk-bridge": "^2.1.8",
+    "@vkontakte/icons": "^1.21.0",
+    "@vkontakte/vk-bridge": "^2.2.2",
     "@vkontakte/vk-miniapps-deploy": "0.0.17",
-    "@vkontakte/vkui": "^3.7.0",
+    "@vkontakte/vkui": "^3.9.3",
     "babel-eslint": "^10.1.0",
     "chalk": "^2.4.2",
     "core-js": "^3.6.5",
-    "eruda": "^2.3.1",
+    "eruda": "^2.3.3",
     "eruda-code": "^2.0.0",
     "eruda-dom": "^2.0.0",
     "gh-pages": "^2.2.0",
