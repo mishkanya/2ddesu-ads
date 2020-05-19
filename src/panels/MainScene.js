@@ -30,42 +30,39 @@ class MainScene extends React.Component {
     super(props);
 
     this.state = {
+      getUserInfo: false,
       userInfo: "",
       activeView: 'mainMenu',
     }
   }
 
   getUserName() {
-    try
-    {
+    try {
       return this.state.userInfo.first_name;
     }
-    catch
-    {
+    catch{
       return "милый подписчик";
     }
   }
-  getUserInfo(){
+  getInfo() {
     bridge.send("VKWebAppGetUserInfo", {})
       .then(user_data => {
-        console.log(user_data);
         this.setState({ userInfo: user_data });
-        console.log(this.state.userInfo);
+        this.setState({ getUserInfo: true });
       });
-  }
-  componentWillMount() {
-    setTimeout(function () {
-      this.getUserInfo();
-    }.bind(this), 200);
   }
 
   render() {
+    if (this.state.getUserInfo == false)
+    {
+      this.getInfo();
+    }
 
     return (
       <Root activeView={this.state.activeView}>
         <View activePanel="panel1.1" id="Ads">
           <Panel id="panel1.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }),this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               {/*<Link  target="_blank" href = 'https://vk.com/club143313662' className = 'header'></Link>*/}
               <Button after={<Icon24Market width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Реклама</Button>
             </PanelHeader>
@@ -76,7 +73,7 @@ class MainScene extends React.Component {
 
         <View header activePanel="panel2.1" id="Vp">
           <Panel id="panel2.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }),this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               {/*<Link target="_blank" href = 'https://vk.com/club143313662' className = 'header'>Сотрудничество</Link> */}
               <Button after={<Icon24Work width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662' >Сотрудничество</Button>
             </PanelHeader>
@@ -87,7 +84,7 @@ class MainScene extends React.Component {
 
         <View header activePanel="panel3.1" id="Pay">
           <Panel id="panel3.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }), this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               {/*<Link target="_blank" href = 'https://vk.com/club143313662' className = 'header'>Реквизиты</Link>*/}
               <Button after={<Icon24Note width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Реквизиты</Button>
             </PanelHeader>
@@ -98,7 +95,7 @@ class MainScene extends React.Component {
 
         <View header activePanel="panel4.1" id="stickers">
           <Panel id="panel4.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }), this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               {/*<div className = 'header'>Стикеры группы</div>*/}
               <Button after={<Icon24Gift width={20} height={20} />} mode="tertiary" size="xl" target="_blank" href='https://vk.com/club143313662'>Стикеры группы</Button>
             </PanelHeader>
@@ -151,7 +148,7 @@ class MainScene extends React.Component {
 
         <View header activePanel="panel6.1" id="help">
           <Panel id="panel6.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }), this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               {/*<PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>Помощь</PanelHeader>*/}
               <Button after={<Icon24Info width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Помощь</Button>
             </PanelHeader>
@@ -162,7 +159,7 @@ class MainScene extends React.Component {
 
         <View header activePanel="panel7.1" id="Personal">
           <Panel id="panel7.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }), this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               <Button after={<Icon24Users width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Персонал группы</Button>
             </PanelHeader>
             <Personal />
@@ -172,7 +169,7 @@ class MainScene extends React.Component {
 
         <View header activePanel="panel8.1" id="VacancyList">
           <Panel id="panel8.1">
-            <PanelHeader left={<PanelHeaderBack onClick={() => (this.setState({ activeView: 'mainMenu' }), this.componentWillMount())} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
               <Button after={<Icon24UserAdd width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Вакансии</Button>
             </PanelHeader>
             <VacancyList />
