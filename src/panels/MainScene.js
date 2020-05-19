@@ -56,6 +56,7 @@ class MainScene extends React.Component {
     if (this.state.getUserInfo == false)
     {
       this.getInfo();
+      
     }
 
     return (
