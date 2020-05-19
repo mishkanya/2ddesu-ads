@@ -44,19 +44,15 @@ class MainScene extends React.Component {
       return "милый подписчик";
     }
   }
-  getInfo() {
-    bridge.send("VKWebAppGetUserInfo", {})
-      .then(user_data => {
-        this.setState({ userInfo: user_data });
-        this.setState({ getUserInfo: true });
-      });
-  }
 
   render() {
     if (this.state.getUserInfo == false)
     {
-      this.getInfo();
-      
+      bridge.send("VKWebAppGetUserInfo", {})
+      .then(user_data => {
+        this.setState({ userInfo: user_data });
+        this.setState({ getUserInfo: true });
+      });
     }
 
     return (
