@@ -54,7 +54,7 @@ class Persona extends React.Component {
                         after={<Icon24LinkCircle width={20} height={20}/>}
                         target="_blank" 
                         href={this.props.projectLink} 
-                        mode="outline"
+                        mode="tertiary"
                     > 
                         Личный проект
                     </Button> : null

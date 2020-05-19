@@ -61,7 +61,7 @@ class Vacancy extends React.Component {
                 } 
             </Div>
             <Div align="center">
-                <Button target="_blank" href={"https://vk.me/club143313662"} after={<Icon28AddCircleOutline width={20} height={20}/>} mode="tertiary">Откликнуться</Button>
+                <Button target="_blank" href={"https://vk.me/club143313662"} after={<Icon28AddCircleOutline width={20} height={20}/>} mode="outline">Откликнуться</Button>
             </Div>
           </Card>
             
