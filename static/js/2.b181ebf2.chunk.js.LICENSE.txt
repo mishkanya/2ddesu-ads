@@ -29,7 +29,7 @@ object-assign
      * MIT license
      */
 
-/*! eruda v2.3.1 https://eruda.liriliri.io/ */
+/*! eruda v2.3.3 https://eruda.liriliri.io/ */
 
 /*! eruda-code v2.0.0 https://github.com/liriliri/eruda-code#readme */
 
