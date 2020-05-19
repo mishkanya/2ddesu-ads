@@ -1,5 +1,5 @@
 import React from 'react';
-import {SimpleCell, Div, Text , Button} from '@vkontakte/vkui';
+import {SimpleCell, Div, Text , Button, Card} from '@vkontakte/vkui';
 
 //#region icons
 import Icon28CancelCircleOutline from '@vkontakte/icons/dist/28/cancel_circle_outline';
@@ -44,19 +44,28 @@ class Vacancy extends React.Component {
   render() {
     return (
       <Div>
+          <Card>
             <SimpleCell 
                 onClick={() => (this.buttonClick())}
-                after={<Button after={<Icon28AddCircleOutline width={20} height={20}/>} size="l" mode="outline">Откликнуться</Button>} 
                 before={this.getIcon()}
+                after={<Icon28MoreHorizontal width={24} height={24}/>}
             >
                 {this.props.name}
             </SimpleCell>
-            {this.state.viewInfo == true? 
-                <Text>
-                    {this.props.description}
-                </Text> 
-                : null 
-            } 
+            <Div>
+                {this.state.viewInfo == true? 
+                    <Text>
+                        {this.props.description}
+                    </Text> 
+                    : null 
+                } 
+            </Div>
+            <Div align="center">
+                <Button after={<Icon28AddCircleOutline width={20} height={20}/>} mode="outline">Откликнуться</Button>
+            </Div>
+          </Card>
+            
+            
       </Div>
     );
   }
