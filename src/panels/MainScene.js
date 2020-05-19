@@ -46,8 +46,9 @@ class MainScene extends React.Component {
   componentWillMount() {
     bridge.send("VKWebAppGetUserInfo", {})
       .then(user_data => {
+        console.log(user_data);
         this.setState({ userInfo: user_data });
-        this.setState({ getUserInfo: true });
+        console.log(this.state.userInfo);
       });
   }
 
