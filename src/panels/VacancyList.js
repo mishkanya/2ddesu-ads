@@ -27,9 +27,6 @@ class VacancyList extends React.Component {
           <Group>
             <Vacancy icon="non" name="Пока что пусто" description="Как только нам понадобятся новые работники, здесь появятся вакансии"/>
           </Group>
-          <Group>
-            <Vacancy icon="" name="Требуется эскорт" description="будете сосатб"/>
-          </Group>
         </List>
       </Div>
     );
