@@ -36,20 +36,27 @@ class MainScene extends React.Component {
   }
 
   getUserName() {
-    try {
+    try
+    {
       return this.state.userInfo.first_name;
     }
-    catch{
+    catch
+    {
       return "милый подписчик";
     }
   }
-  componentWillMount() {
+  getUserInfo(){
     bridge.send("VKWebAppGetUserInfo", {})
       .then(user_data => {
         console.log(user_data);
         this.setState({ userInfo: user_data });
         console.log(this.state.userInfo);
       });
+  }
+  componentWillMount() {
+    setTimeout(function () {
+      this.getUserInfo();
+    }.bind(this), 200);
   }
 
   render() {
