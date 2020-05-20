@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Button, Cell, Card, CellButton, Progress, Input} from '@vkontakte/vkui';
+import { Div, Button, Cell, Card, CellButton, Progress, Input } from '@vkontakte/vkui';
 import bridge from '@vkontakte/vk-bridge';
 import stickerImg from '../img/tickers.png'
 import copy from 'copy-to-clipboard';

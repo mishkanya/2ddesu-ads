@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Header, Link, Card} from '@vkontakte/vkui';
+import { Div, Header, Link, Card } from '@vkontakte/vkui';
 
 class PayInfo extends React.Component {
 

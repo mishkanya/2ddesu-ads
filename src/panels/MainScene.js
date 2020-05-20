@@ -46,13 +46,12 @@ class MainScene extends React.Component {
   }
 
   render() {
-    if (this.state.getUserInfo == false)
-    {
+    if (this.state.getUserInfo == false) {
       bridge.send("VKWebAppGetUserInfo", {})
-      .then(user_data => {
-        this.setState({ userInfo: user_data });
-        this.setState({ getUserInfo: true });
-      });
+        .then(user_data => {
+          this.setState({ userInfo: user_data });
+          this.setState({ getUserInfo: true });
+        });
     }
 
     return (
@@ -60,7 +59,6 @@ class MainScene extends React.Component {
         <View activePanel="panel1.1" id="Ads">
           <Panel id="panel1.1">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
-              {/*<Link  target="_blank" href = 'https://vk.com/club143313662' className = 'header'></Link>*/}
               <Button after={<Icon24Market width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Реклама</Button>
             </PanelHeader>
             <AdsPanel />
@@ -71,7 +69,6 @@ class MainScene extends React.Component {
         <View header activePanel="panel2.1" id="Vp">
           <Panel id="panel2.1">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
-              {/*<Link target="_blank" href = 'https://vk.com/club143313662' className = 'header'>Сотрудничество</Link> */}
               <Button after={<Icon24Work width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662' >Сотрудничество</Button>
             </PanelHeader>
             <VPPanel />
@@ -82,7 +79,6 @@ class MainScene extends React.Component {
         <View header activePanel="panel3.1" id="Pay">
           <Panel id="panel3.1">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
-              {/*<Link target="_blank" href = 'https://vk.com/club143313662' className = 'header'>Реквизиты</Link>*/}
               <Button after={<Icon24Note width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Реквизиты</Button>
             </PanelHeader>
             <PayInfo />
@@ -93,7 +89,6 @@ class MainScene extends React.Component {
         <View header activePanel="panel4.1" id="stickers">
           <Panel id="panel4.1">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
-              {/*<div className = 'header'>Стикеры группы</div>*/}
               <Button after={<Icon24Gift width={20} height={20} />} mode="tertiary" size="xl" target="_blank" href='https://vk.com/club143313662'>Стикеры группы</Button>
             </PanelHeader>
             <Stickers />
@@ -104,14 +99,13 @@ class MainScene extends React.Component {
         <View header activePanel="panel5.1" id="mainMenu">
           <Panel id="panel5.1">
             <PanelHeader >
-              {/*<Link align="center" target="_blank" href = 'https://vk.com/club143313662' className = 'header'>2DDesu App</Link>*/}
               <Button after={<Icon24Like width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>2DDesu App</Button>
             </PanelHeader>
 
             <Group>
               <Card align="center" mode="tint">
                 <Div>
-                    <img style={{borderRadius: "100%"}} src={this.state.userInfo.photo_200} width={120} height={120} />
+                  <img style={{ borderRadius: "100%" }} src={this.state.userInfo.photo_200} width={120} height={120} />
                 </Div>
                 <Div>
                   Привет {this.getUserName()}! Мы ждали тебя:3
@@ -146,7 +140,6 @@ class MainScene extends React.Component {
         <View header activePanel="panel6.1" id="help">
           <Panel id="panel6.1">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
-              {/*<PanelHeader left={<PanelHeaderBack onClick={ () => this.setState({ activeView: 'mainMenu' }) } />}>Помощь</PanelHeader>*/}
               <Button after={<Icon24Info width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Помощь</Button>
             </PanelHeader>
             <Help />

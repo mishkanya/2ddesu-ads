@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Div, Group, Button} from '@vkontakte/vkui';
+import { Link, Div, Group, Button } from '@vkontakte/vkui';
 
 //#region icons
 import Icon28WalletOutline from '@vkontakte/icons/dist/28/wallet_outline';
@@ -47,7 +47,7 @@ class Help extends React.Component {
   render() {
     return (
       <Div >
-        <Group header={<Button before={<Icon28WalletOutline width={20} height={20}/>} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
+        <Group header={<Button before={<Icon28WalletOutline width={20} height={20} />} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
           return { adsHelp: !this.state.adsHelp }
         }))}>
           Покупка рекламы
@@ -63,7 +63,7 @@ class Help extends React.Component {
         </Group>
 
 
-        <Group header={<Button before={<Icon28MessageAddBadgeOutline width={20} height={20}/>} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
+        <Group header={<Button before={<Icon28MessageAddBadgeOutline width={20} height={20} />} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
           return { vpHelp: !this.state.vpHelp }
         }))}>Сотрудничество</Button>}>
           {this.state.vpHelp ?
@@ -78,7 +78,7 @@ class Help extends React.Component {
         </Group>
 
 
-        <Group header={<Button before={<Icon28GiftOutline width={20} height={20}/>} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
+        <Group header={<Button before={<Icon28GiftOutline width={20} height={20} />} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
           return { stickersHelp: !this.state.stickersHelp }
         }))}>Стикеры</Button>}>
           {this.state.stickersHelp ?
@@ -93,7 +93,7 @@ class Help extends React.Component {
         </Group>
 
 
-        <Group header={<Button before={<Icon28MoreHorizontal width={20} height={20}/>} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
+        <Group header={<Button before={<Icon28MoreHorizontal width={20} height={20} />} mode="tertiary" onClick={() => (this.HideHelp(), this.setState(() => {
           return { other: !this.state.other }
         }))}>Другое</Button>}>
           {this.state.other ?

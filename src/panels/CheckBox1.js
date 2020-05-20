@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Cell, Checkbox} from '@vkontakte/vkui';
+import { Div, Cell, Checkbox } from '@vkontakte/vkui';
 
 import Slider2 from './Slider2';
 

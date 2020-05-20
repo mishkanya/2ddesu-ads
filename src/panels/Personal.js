@@ -1,9 +1,9 @@
 import React from 'react';
-import { List, Group} from '@vkontakte/vkui';
+import { List, Group } from '@vkontakte/vkui';
 import Persona from './Persona';
 import bridge from '@vkontakte/vk-bridge';
 
-let usersIds = "372864591, 542678732, 534664876, 289576559, 593244826";
+let usersIds = "372864591, 542678732,179344877, 534664876, 289576559, 593244826";
 class Personal extends React.Component {
 
   constructor(props) {
@@ -49,13 +49,16 @@ class Personal extends React.Component {
           <Persona userInfo={this.getPersonInfo(1)} vacancy="Зам. владельца" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(2)} vacancy="Менеджер" />
+          <Persona userInfo={this.getPersonInfo(3)} vacancy="Менеджер" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(3)} vacancy="Художник" projectLink="https://vk.com/galleryoffd" />
+          <Persona userInfo={this.getPersonInfo(2)} mode="streamer" vacancy="Стример" projectLink="https://www.twitch.tv/dantis" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(4)} vacancy="Ангельский голосок" />
+          <Persona userInfo={this.getPersonInfo(4)} mode="painter" vacancy="Художник" projectLink="https://vk.com/galleryoffd" />
+        </Group>
+        <Group>
+          <Persona userInfo={this.getPersonInfo(5)} vacancy="Ангельский голосок" />
         </Group>
       </List>
     );

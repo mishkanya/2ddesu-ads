@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Group, Button, Card, Header, Link, Input} from '@vkontakte/vkui';
+import { Div, Group, Button, Card, Header, Link, Input } from '@vkontakte/vkui';
 import copy from 'copy-to-clipboard';
 
 class VpPanel extends React.Component {

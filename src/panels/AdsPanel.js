@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Group, Button, Card} from '@vkontakte/vkui';
+import { Div, Group, Button, Card } from '@vkontakte/vkui';
 import copy from 'copy-to-clipboard';
 
 //#region MyComponents
@@ -23,11 +23,9 @@ class AdsPanel extends React.Component {
     this.setState({ message: this.getPrice() });
   };
 
-  getPrice() 
-  {
+  getPrice() {
     var first = document.getElementById('input1').getAttribute('value');
-    try 
-    {
+    try {
       var second = Boolean(document.getElementById('checkbox1').getAttribute('value')) ? document.getElementById('input2').getAttribute('value') : 0;
     }
     catch
@@ -40,8 +38,7 @@ class AdsPanel extends React.Component {
     return Message;
   }
 
-  render() 
-  {
+  render() {
     return (
       <Div>
         <Button mode="tertiary " align="center" target="_blank" href='https://vk.com/stats?gid=143313662' size="xl">Статистика</Button>

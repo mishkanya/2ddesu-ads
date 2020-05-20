@@ -1,5 +1,5 @@
 import React from 'react';
-import {Div, Cell, Input, List, Slider} from '@vkontakte/vkui';
+import { Div, Cell, Input, List, Slider } from '@vkontakte/vkui';
 
 class Slider2 extends React.Component {
 

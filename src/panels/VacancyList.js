@@ -1,5 +1,5 @@
 import React from 'react';
-import {List, Div, Group, Button} from '@vkontakte/vkui';
+import { List, Div, Group, Button } from '@vkontakte/vkui';
 import Vacancy from './Vacancy'
 
 class VacancyList extends React.Component {
@@ -25,7 +25,7 @@ class VacancyList extends React.Component {
       <Div >
         <List>
           <Group>
-            <Vacancy icon="non" name="Пока что пусто" description="Как только нам понадобятся новые работники, здесь появятся вакансии"/>
+            <Vacancy icon="non" name="Пока что пусто" description="Как только нам понадобятся новые работники, здесь появятся вакансии" />
           </Group>
         </List>
       </Div>
