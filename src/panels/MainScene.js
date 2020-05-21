@@ -24,7 +24,7 @@ import Icon24Users from '@vkontakte/icons/dist/24/users';//персонал
 import Icon24UserAdd from '@vkontakte/icons/dist/24/user_add';//вакансии
 //#endregion
 
-let fuck = true;
+let Checed = true;
 class MainScene extends React.Component {
   constructor(props) 
   {
@@ -64,9 +64,9 @@ class MainScene extends React.Component {
 
   render()
   {
-    if(fuck == true){
+    if(Checed == true){
       this.changeUserInfo();
-      fuck = false;
+      Checed = false;
     }
     return (
       <Root activeView={this.state.activeView}>
