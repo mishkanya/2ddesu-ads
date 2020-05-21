@@ -54,19 +54,24 @@ class MainScene extends React.Component {
 
   changeUserInfo()
   {
-    console.log("hi bitch!");
-    bridge.send("VKWebAppGetUserInfo", {})
+    setTimeout(function () {
+      bridge.send("VKWebAppGetUserInfo", {})
     .then(user_data => {
       this.setState({ userInfo: user_data });
       this.setState({ getUserInfo: true });
     });
+    }.bind(this), 200);
+
+    console.log("hi bitch!");
+    
+    Checed = false;
   }
 
   render()
   {
-    if(Checed == true){
+    if(Checed == true)
+    {
       this.changeUserInfo();
-      Checed = false;
     }
     return (
       <Root activeView={this.state.activeView}>
