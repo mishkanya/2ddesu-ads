@@ -36,6 +36,13 @@ class MainScene extends React.Component {
       activeView: 'mainMenu',
     }
   }
+  options() {
+    let options = [];
+    for (let i = 0; i <= 10; i += 2) {
+      options.push(<option value={`${i / 10}`} key={`${i}`}>{i / 10}</option>)
+    }
+    return options;
+  }
 
   getUserName()
   {
@@ -61,9 +68,6 @@ class MainScene extends React.Component {
       this.setState({ getUserInfo: true });
     });
     }.bind(this), 200);
-
-    console.log("hi bitch!");
-    
     Checed = false;
   }
 
@@ -185,7 +189,6 @@ class MainScene extends React.Component {
           </Panel>
         </View>
       </Root>
-
     )
   }
 }
