@@ -1,21 +1,23 @@
 import React from 'react';
-import {View, ScreenSpinner, Spinner, Button, Link, RichCell, Header, Div } from '@vkontakte/vkui';
-import bridge from '@vkontakte/vk-bridge';
+import {Spinner, Button, Header, Div } from '@vkontakte/vkui';
+const axios = require('axios').default;
 
-class RandomAnime extends React.Component {
+class RandomAnimePanel extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state =
         {
-            popout: <ScreenSpinner/>,
             animeInfo: <Header>Эта функция недоступна...</Header>
         };
     }
     componentWillMount()
     {
-        this.setState({popout: null});
+        axios.post(this.props.quote_service_url, 
+            {'quote': this.state.quote})
+        .then(r => console.log(r))
+        .catch(e => console.log(e));
     }
     options() {
         let options = [];
@@ -24,7 +26,10 @@ class RandomAnime extends React.Component {
         }
         return options;
     }
-   
+    
+    getRandomAnime(){
+
+    }
 
     render() {
         return (
@@ -36,4 +41,4 @@ class RandomAnime extends React.Component {
     }
 }
 
-export default RandomAnime
+export default RandomAnimePanel

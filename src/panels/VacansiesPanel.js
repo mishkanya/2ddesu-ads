@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Div, Group, Button } from '@vkontakte/vkui';
 import Vacancy from './Vacancy'
 
-class VacancyList extends React.Component {
+class VacansiesPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,4 +33,4 @@ class VacancyList extends React.Component {
   }
 }
 
-export default VacancyList
+export default VacansiesPanel

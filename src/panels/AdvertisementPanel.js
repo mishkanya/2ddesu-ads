@@ -2,13 +2,13 @@ import React from 'react';
 import { Div, Group, Button, Card } from '@vkontakte/vkui';
 import copy from 'copy-to-clipboard';
 
-//#region MyComponents
-import Slider3 from './Slider3';
-import Checkbox1 from './CheckBox1';
-import Slider1 from './Slider1';
+//#region Components
+import HourCalculater from './AdvertisementComponents/HourCalculater';
+import Fastener from './AdvertisementComponents/Fastener';
+import AdsCount from './AdvertisementComponents/AdsCount';
 //#endregion
 
-class AdsPanel extends React.Component {
+class AdvertisementPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -42,9 +42,9 @@ class AdsPanel extends React.Component {
     return (
       <Div>
         <Button mode="tertiary " align="center" target="_blank" href='https://vk.com/stats?gid=143313662' size="xl">Статистика</Button>
-        <Group mode="outline"><Slider1 setPrice={this.setPrice} /></Group>
-        <Group mode="outline"><Checkbox1 setPrice={this.setPrice} /></Group>
-        <Group mode="outline"><Slider3 setPrice={this.setPrice} /></Group>
+        <Group mode="outline"><HourCalculater setPrice={this.setPrice} /></Group>
+        <Group mode="outline"><Fastener setPrice={this.setPrice} /></Group>
+        <Group mode="outline"><AdsCount setPrice={this.setPrice} /></Group>
         <Card align="center" size="l" mode="outline"><Div style={{ whiteSpace: "pre-line" }}>{this.state.message}</Div></Card>
         <Group align="center" > <Button size="xl" target="_blank" href="https://vk.com/club143313662" onClick={() => (copy(this.getPrice))}>Заказать рекламу</Button></Group>
       </Div>
@@ -52,4 +52,4 @@ class AdsPanel extends React.Component {
   }
 }
 
-export default AdsPanel
+export default AdvertisementPanel

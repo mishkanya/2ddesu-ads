@@ -1,10 +1,10 @@
 import React from 'react';
 import { List, Group } from '@vkontakte/vkui';
-import Persona from './Persona';
+import Person from './Person';
 import bridge from '@vkontakte/vk-bridge';
 
 let usersIds = "372864591, 542678732,179344877, 534664876, 289576559, 593244826";
-class Personal extends React.Component {
+class PersonlPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -43,26 +43,26 @@ class Personal extends React.Component {
     return (
       <List>
         <Group>
-          <Persona userInfo={this.getPersonInfo(0)} vacancy="Владелец" />
+          <Person userInfo={this.getPersonInfo(0)} vacancy="Владелец" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(1)} vacancy="Зам. владельца" />
+          <Person userInfo={this.getPersonInfo(1)} vacancy="Зам. владельца" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(3)} vacancy="Менеджер" />
+          <Person userInfo={this.getPersonInfo(3)} vacancy="Менеджер" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(2)} mode="streamer" vacancy="Стример" projectLink="https://www.twitch.tv/dantis" />
+          <Person userInfo={this.getPersonInfo(2)} mode="streamer" vacancy="Стример" projectLink="https://www.twitch.tv/dantis" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(4)} mode="painter" vacancy="Художник" projectLink="https://vk.com/galleryoffd" />
+          <Person userInfo={this.getPersonInfo(4)} mode="painter" vacancy="Художник" projectLink="https://vk.com/galleryoffd" />
         </Group>
         <Group>
-          <Persona userInfo={this.getPersonInfo(5)} vacancy="Ангельский голосок" />
+          <Person userInfo={this.getPersonInfo(5)} vacancy="Ангельский голосок" />
         </Group>
       </List>
     );
   }
 }
 
-export default Personal
+export default PersonlPanel

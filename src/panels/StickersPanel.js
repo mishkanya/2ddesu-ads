@@ -12,7 +12,7 @@ import Icon28ErrorOutline from '@vkontakte/icons/dist/28/error_outline';
 const groupId = "-194700016";
 let DocsId = ["546651505", "546651721", "546651975", "546652187", "546652555", "546652844", "546653024", "546653202", "546653366", "546653575", "546653818", "546654092", "546654256", "546654391", "546654557", "546654736", "546654954", "546655073", "546655226", "546655336", "546655485", "546655786", "546655860", "546655965", "546656406", "546668774", "547564255"];
 
-class Stickers extends React.Component {
+class StickersPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -197,4 +197,4 @@ class Stickers extends React.Component {
   }
 }
 
-export default Stickers
+export default StickersPanel

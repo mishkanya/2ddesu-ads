@@ -1,7 +1,7 @@
 import React from 'react';
 import { Div, Header, Link, Card } from '@vkontakte/vkui';
 
-class PayInfo extends React.Component {
+class PayInfoPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -41,4 +41,4 @@ class PayInfo extends React.Component {
   }
 }
 
-export default PayInfo
+export default PayInfoPanel

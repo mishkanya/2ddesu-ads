@@ -2,7 +2,7 @@ import React from 'react';
 import { Div, Group, Button, Card, Header, Link, Input } from '@vkontakte/vkui';
 import copy from 'copy-to-clipboard';
 
-class VpPanel extends React.Component {
+class InterplayPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -61,4 +61,4 @@ class VpPanel extends React.Component {
   }
 }
 
-export default VpPanel
+export default InterplayPanel

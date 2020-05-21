@@ -1,16 +1,17 @@
 import React from 'react';
 import {Div, Group, Button, Panel, PanelHeader, Card, View, Root, Header, PanelHeaderBack,FixedLayout,PromoBanner } from '@vkontakte/vkui';
 import bridge from '@vkontakte/vk-bridge';
+import '@vkontakte/vkui/dist/vkui.css';
 
 //#region panels
-import AdsPanel from './AdsPanel';
-import VPPanel from './VpPanel';
-import PayInfo from './PayInfo';
-import Stickers from './Stickers';
-import Help from './Help';
-import VacancyList from './VacancyList';
-import Personal from './Personal';
-import RandomAnime from './RandomAnime';
+import AdvertisementPanel from './AdvertisementPanel';
+import InterplayPanel from './InterplayPanel';
+import PayInfoPanel from './PayInfoPanel';
+import StickersPanel from './StickersPanel';
+import HelpPanel from './HelpPanel';
+import VacansiesPanel from './VacansiesPanel';
+import PersonalPanel from './PersonalPanel';
+import RandomAnimePanel from './RandomAnimePanel';
 
 //#endregion
 
@@ -50,7 +51,7 @@ class MainScene extends React.Component {
     this.state = {
       getUserInfo: false,
       userInfo: "",
-      activeView: 'mainMenu',
+      activeView: 'MainMenu',
       Debug: null,
     }
   }
@@ -124,11 +125,9 @@ class MainScene extends React.Component {
     }
     return (
       <Root activeView={this.state.activeView}>
-        
-        
-        <View header activePanel="mainMenu" id="mainMenu">
-          <Panel id="mainMenu">
-            <PanelHeader >
+        <View header activePanel="MainMenu" id="MainMenu">
+          <Panel id="MainMenu">
+            <PanelHeader separator={false}>
               <Button after={<Icon24Like width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>2DDesu App</Button>
             </PanelHeader>
 
@@ -144,86 +143,86 @@ class MainScene extends React.Component {
 
             <Group header={<Header mode="secondary">Сотрудничество</Header>}>
               <Div align="center">
-                <Button before={<Icon24Market width={20} height={20} />} onClick={() => this.setState({ activeView: 'Ads' })} mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
-                <Button before={<Icon24Work width={20} height={20} />} onClick={() => this.setState({ activeView: 'Vp' })} mode="tertiary" size="l" >Взаимопиар</Button>
+                <Button before={<Icon24Market width={20} height={20} />} onClick={() => this.setState({ activeView: 'Advertisement' })} mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
+                <Button before={<Icon24Work width={20} height={20} />} onClick={() => this.setState({ activeView: 'Interplay' })} mode="tertiary" size="l" >Взаимопиар</Button>
               </Div>
               <Div align="center">
                 <Button before={<Icon24Users width={20} height={20} />} onClick={() => this.setState({ activeView: 'Personal' })} mode="tertiary " size="l" style={{ marginRight: 8 }}>Персонал</Button>
-                <Button before={<Icon24UserAdd width={20} height={20} />} onClick={() => this.setState({ activeView: 'VacancyList' })} mode="tertiary" size="l" >Вакансии</Button>
+                <Button before={<Icon24UserAdd width={20} height={20} />} onClick={() => this.setState({ activeView: 'Vacansies' })} mode="tertiary" size="l" >Вакансии</Button>
               </Div>
             </Group>
 
 
             <Group align="center" header={<Header mode="secondary">Приятные плюшки</Header>}>
-              <Div><Button before={<Icon24Gift width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'stickers' })}>Стикеры группы</Button></Div>
-              <Div><Button before={<Icon24Services width={20} height={20} />} mode="destructive" size="l" onClick={() => this.setState({ activeView: 'randomAnime' })}>Случайное аниме</Button></Div>
+              <Div><Button before={<Icon24Gift width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'Stickers' })}>Стикеры группы</Button></Div>
+              <Div><Button before={<Icon24Services width={20} height={20} />} mode="destructive" size="l" onClick={() => this.setState({ activeView: 'RandomAnime' })}>Случайное аниме</Button></Div>
             </Group >
 
             <Group align="center" header={<Header mode="secondary">Информация</Header>}>
-              <Div><Button before={<Icon24Note width={20} height={20} />} size="l" onClick={() => this.setState({ activeView: 'Pay' })}>Реквизиты</Button></Div>
-              <Button before={<Icon24Info width={20} height={20} />} onClick={() => this.setState({ activeView: 'help' })} mode="tertiary" size="l" >Помощь</Button>
+              <Div><Button before={<Icon24Note width={20} height={20} />} size="l" onClick={() => this.setState({ activeView: 'PayInfoPanel' })}>Реквизиты</Button></Div>
+              <Button before={<Icon24Info width={20} height={20} />} onClick={() => this.setState({ activeView: 'HelpPanel' })} mode="tertiary" size="l" >Помощь</Button>
             </Group>
               <Div>{this.state.Debug}</Div>
           </Panel>
         </View>
 
 
-        <View activePanel="Ads" id="Ads">
-          <Panel id="Ads">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View activePanel="Advertisement" id="Advertisement">
+          <Panel id="Advertisement">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Market width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Реклама</Button>
             </PanelHeader>
-            <AdsPanel />
+            <AdvertisementPanel />
           </Panel>
         </View>
 
 
-        <View header activePanel="Vp" id="Vp">
-          <Panel id="Vp">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View header activePanel="Interplay" id="Interplay">
+          <Panel id="Interplay">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Work width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662' >Взаимопиар</Button>
             </PanelHeader>
-            <VPPanel />
+            <InterplayPanel />
           </Panel>
         </View>
 
        
         <View header activePanel="Personal" id="Personal">
           <Panel id="Personal">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Users width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Персонал группы</Button>
             </PanelHeader>
-            <Personal />
+            <PersonalPanel />
           </Panel>
         </View>
 
 
-        <View header activePanel="VacancyList" id="VacancyList">
-          <Panel id="VacancyList">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View header activePanel="Vacansies" id="Vacansies">
+          <Panel id="Vacansies">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24UserAdd width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Вакансии</Button>
             </PanelHeader>
-            <VacancyList />
+            <VacansiesPanel />
           </Panel>
         </View>
         
 
-        <View header activePanel="stickers" id="stickers">
-          <Panel id="stickers">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View header activePanel="Stickers" id="Stickers">
+          <Panel id="Stickers">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Gift width={20} height={20} />} mode="tertiary" size="xl" target="_blank" href='https://vk.com/club143313662'>Стикеры группы</Button>
             </PanelHeader>
-            <Stickers />
+            <StickersPanel />
           </Panel>
         </View>
 
         
-        <View header activePanel="randomAnime" id="randomAnime">
-          <Panel id="randomAnime">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View header activePanel="RandomAnime" id="RandomAnime">
+          <Panel id="RandomAnime">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Services width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Случайное аниме</Button>
             </PanelHeader>
-            <RandomAnime />
+            <RandomAnimePanel/>
             {/*<FixedLayout vertical="bottom">
                     <PromoBanner bannerData={promoBannerProps} />
             </FixedLayout>;*/}
@@ -231,22 +230,22 @@ class MainScene extends React.Component {
         </View>
       
 
-        <View header activePanel="Pay" id="Pay">
-          <Panel id="Pay">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View header activePanel="PayInfoPanel" id="PayInfoPanel">
+          <Panel id="PayInfoPanel">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Note width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Реквизиты</Button>
             </PanelHeader>
-            <PayInfo />
+            <PayInfoPanel />
           </Panel>
         </View>
 
 
-        <View header activePanel="help" id="help">
-          <Panel id="help">
-            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
+        <View header activePanel="HelpPanel" id="HelpPanel">
+          <Panel id="HelpPanel">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
               <Button after={<Icon24Info width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Помощь</Button>
             </PanelHeader>
-            <Help />
+            <HelpPanel />
           </Panel>
         </View>
 

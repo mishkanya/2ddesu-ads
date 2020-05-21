@@ -1,7 +1,7 @@
 import React from 'react';
 import { Div, Cell, Input, List, Slider } from '@vkontakte/vkui';
 
-class Slider2 extends React.Component {
+class FastenSlider extends React.Component {
 
   constructor(props) {
     super(props);
@@ -41,4 +41,4 @@ class Slider2 extends React.Component {
   }
 }
 
-export default Slider2
+export default FastenSlider

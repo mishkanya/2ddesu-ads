@@ -2,13 +2,13 @@ import React from 'react';
 import { Div, Cell, Input, List, Slider } from '@vkontakte/vkui';
 
 
-class Slider1 extends React.Component {
+class AdsCount extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      value1: 6,
+      value1: 1,
     };
   }
 
@@ -26,22 +26,23 @@ class Slider1 extends React.Component {
     return (
       <Div>
         <List>
-          <Cell before={'Часов в ленте: '}>
+          <Cell before={'Число постов: '} >
             <Input
               disabled
-              id='input1'
-              min={6}
-              max={24} value={Number(this.state.value1)} onChange={e => (this.props.setPrice(this.state.value1), this.setState({ value1: e.target.value }))} type="number" />
+              id='input3'
+              min={1}
+              max={5} value={Number(this.state.value1)} onChange={e => (this.props.setPrice(), this.setState({ value1: e.target.value }))} type="number" />
           </Cell>
-          <Cell>
+          <Cell >
             <Slider
               align="right"
               step={1}
-              min={6}
-              max={24}
+              min={1}
+              max={5}
               value={Number(this.state.value1)}
               onChange={value1 => (this.props.setPrice(), this.setState({ value1 }))}
             />
+            <p className='footer' align="center" > Скидки на оптовые покупки</p>
           </Cell>
         </List>
       </Div>
@@ -49,5 +50,4 @@ class Slider1 extends React.Component {
   }
 }
 
-
-export default Slider1
+export default AdsCount

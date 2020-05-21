@@ -8,7 +8,7 @@ import Icon28GiftOutline from '@vkontakte/icons/dist/28/gift_outline';
 import Icon28MoreHorizontal from '@vkontakte/icons/dist/28/more_horizontal';
 //#endregion
 
-class Help extends React.Component {
+class HelpPanel extends React.Component {
 
   constructor(props) {
     super(props);
@@ -108,4 +108,4 @@ class Help extends React.Component {
   }
 }
 
-export default Help
+export default HelpPanel

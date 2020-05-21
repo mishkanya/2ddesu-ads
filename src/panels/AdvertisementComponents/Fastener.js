@@ -1,9 +1,9 @@
 import React from 'react';
 import { Div, Cell, Checkbox } from '@vkontakte/vkui';
 
-import Slider2 from './Slider2';
+import FastenSlider from './FastenSlider';
 
-class Checkbox1 extends React.Component {
+class Fastener extends React.Component {
 
   constructor(props) {
     super(props);
@@ -39,10 +39,10 @@ class Checkbox1 extends React.Component {
             value={Boolean(this.state.showSlider)}
             onChange={() => (this.setState({ showSlider: !this.state.showSlider }), this.toggleHover())} />
         </Cell>
-        {this.state.showSlider ? <Slider2 setPrice={this.setPrice} /> : null}
+        {this.state.showSlider ? <FastenSlider setPrice={this.setPrice} /> : null}
       </Div>
     );
   }
 }
 
-export default Checkbox1
+export default Fastener

@@ -8,7 +8,7 @@ import Icon24LinkCircle from '@vkontakte/icons/dist/24/link_circle';
 import Icon24BrushOutline from '@vkontakte/icons/dist/24/brush_outline';
 import Icon24Twitch from '../img/twich icon.png';
 
-class Persona extends React.Component {
+class Person extends React.Component {
 
     constructor(props) {
         super(props);
@@ -76,4 +76,4 @@ class Persona extends React.Component {
     }
 }
 
-export default Persona
+export default Person
