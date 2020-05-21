@@ -34,6 +34,7 @@ class MainScene extends React.Component {
       getUserInfo: false,
       userInfo: "",
       activeView: 'mainMenu',
+      Debug: null,
     }
   }
   options() {
@@ -61,13 +62,34 @@ class MainScene extends React.Component {
 
   changeUserInfo()
   {
-    setTimeout(function () {
+    setTimeout(function ()
+    {
       bridge.send("VKWebAppGetUserInfo", {})
-    .then(user_data => {
-      this.setState({ userInfo: user_data });
-      this.setState({ getUserInfo: true });
-    });
-    }.bind(this), 200);
+      .then(user_data => {
+        this.setState({ userInfo: user_data });
+        this.setState({ getUserInfo: true });
+      });
+      bridge.subscribe(e => (this.changeAppTheme(e)));
+      
+    }
+    .bind(this), 200);
+    Checed = false;
+  }
+  changeAppTheme(data)
+  {
+    if(data.detail.type == "VKWebAppUpdateConfig")
+    {
+      try
+      {
+        console.log(data);
+        this.setState({Debug: data.detail.data.scheme});
+      }
+      catch
+      {
+        console.log("Hi pc");
+      }
+      
+    }
     Checed = false;
   }
 
@@ -156,6 +178,7 @@ class MainScene extends React.Component {
             <Group align="center" >
               <Button before={<Icon24Info width={20} height={20} />} onClick={() => this.setState({ activeView: 'help' })} mode="tertiary " size="l" >Помощь</Button>
             </Group>
+              <Div>{this.state.Debug}</Div>
           </Panel>
         </View>
 

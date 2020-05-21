@@ -29,11 +29,15 @@ const App = () => {
 	const go = () => {
 		bridge.send("VKWebAppViewHide",{});
 	};
-
-	return (
-		<View activePanel={activePanel} header={false}>
+	/*return 
+	(
+		<View activePanel={activePanel} popout={popout} header={false}>
 			<MainScene id='home' fetchedUser={fetchedUser} go={go} />
 		</View>
+	);*/
+
+	return (
+			<MainScene id='home' fetchedUser={fetchedUser} go={go} />
 	);
 }
 
