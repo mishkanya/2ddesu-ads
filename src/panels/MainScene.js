@@ -142,10 +142,10 @@ class MainScene extends React.Component {
             </Group>
 
 
-            <Group header={<Header mode="secondary"></Header>}>
+            <Group header={<Header mode="secondary">Сотрудничество</Header>}>
               <Div align="center">
                 <Button before={<Icon24Market width={20} height={20} />} onClick={() => this.setState({ activeView: 'Ads' })} mode="tertiary " size="l" style={{ marginRight: 8 }}>Заказать рекламу</Button>
-                <Button before={<Icon24Work width={20} height={20} />} onClick={() => this.setState({ activeView: 'Vp' })} mode="tertiary" size="l" >Сотрудничество</Button>
+                <Button before={<Icon24Work width={20} height={20} />} onClick={() => this.setState({ activeView: 'Vp' })} mode="tertiary" size="l" >Взаимопиар</Button>
               </Div>
               <Div align="center">
                 <Button before={<Icon24Users width={20} height={20} />} onClick={() => this.setState({ activeView: 'Personal' })} mode="tertiary " size="l" style={{ marginRight: 8 }}>Персонал</Button>
@@ -181,7 +181,7 @@ class MainScene extends React.Component {
         <View header activePanel="Vp" id="Vp">
           <Panel id="Vp">
             <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'mainMenu' })} />}>
-              <Button after={<Icon24Work width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662' >Сотрудничество</Button>
+              <Button after={<Icon24Work width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662' >Взаимопиар</Button>
             </PanelHeader>
             <VPPanel />
           </Panel>

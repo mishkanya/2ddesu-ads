@@ -10,7 +10,7 @@ class RandomAnime extends React.Component {
         this.state =
         {
             popout: <ScreenSpinner/>,
-            animeInfo: <Header>В данный момент эта функция недоступна...</Header>
+            animeInfo: <Header>Эта функция недоступна...</Header>
         };
     }
     componentWillMount()
