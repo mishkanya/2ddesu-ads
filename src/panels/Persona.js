@@ -6,7 +6,7 @@ import Icon28Notifications from '@vkontakte/icons/dist/28/notifications';
 import Icon28NotificationDisableOutline from '@vkontakte/icons/dist/28/notification_disable_outline';
 import Icon24LinkCircle from '@vkontakte/icons/dist/24/link_circle';
 import Icon24BrushOutline from '@vkontakte/icons/dist/24/brush_outline';
-import Icon24Twitch from '../img/twich icon.png'
+import Icon24Twitch from '../img/twich icon.png';
 
 class Persona extends React.Component {
 

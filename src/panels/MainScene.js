@@ -24,9 +24,10 @@ import Icon24Users from '@vkontakte/icons/dist/24/users';//персонал
 import Icon24UserAdd from '@vkontakte/icons/dist/24/user_add';//вакансии
 //#endregion
 
-
+let fuck = true;
 class MainScene extends React.Component {
-  constructor(props) {
+  constructor(props) 
+  {
     super(props);
 
     this.state = {
@@ -36,24 +37,37 @@ class MainScene extends React.Component {
     }
   }
 
-  getUserName() {
-    try {
-      return this.state.userInfo.first_name;
+  getUserName()
+  {
+    try
+    {
+      if(this.state.userInfo.first_name != null)
+        return this.state.userInfo.first_name;
+      else
+          return "милый подписчик";
     }
-    catch{
+    catch
+    {
       return "милый подписчик";
     }
   }
 
-  render() {
-    if (this.state.getUserInfo == false) {
-      bridge.send("VKWebAppGetUserInfo", {})
-        .then(user_data => {
-          this.setState({ userInfo: user_data });
-          this.setState({ getUserInfo: true });
-        });
-    }
+  changeUserInfo()
+  {
+    console.log("hi bitch!");
+    bridge.send("VKWebAppGetUserInfo", {})
+    .then(user_data => {
+      this.setState({ userInfo: user_data });
+      this.setState({ getUserInfo: true });
+    });
+  }
 
+  render()
+  {
+    if(fuck == true){
+      this.changeUserInfo();
+      fuck = false;
+    }
     return (
       <Root activeView={this.state.activeView}>
         <View activePanel="panel1.1" id="Ads">
@@ -108,7 +122,7 @@ class MainScene extends React.Component {
                   <img style={{ borderRadius: "100%" }} src={this.state.userInfo.photo_200} width={120} height={120} />
                 </Div>
                 <Div>
-                  Привет {this.getUserName()}! Мы ждали тебя:3
+                  Привет, {this.getUserName()}! Мы ждали тебя:3
                 </Div>
               </Card>
             </Group>
