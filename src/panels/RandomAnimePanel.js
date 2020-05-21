@@ -1,6 +1,7 @@
 import React from 'react';
 import {Spinner, Button, Header, Div } from '@vkontakte/vkui';
-const axios = require('axios').default;
+//const axios = require('axios').default;
+import axios from "axios";
 
 class RandomAnimePanel extends React.Component {
 
@@ -9,7 +10,8 @@ class RandomAnimePanel extends React.Component {
 
         this.state =
         {
-            animeInfo: <Header>Эта функция недоступна...</Header>
+            animeInfo: <Header>Эта функция недоступна...</Header>,
+            debug:"dont work..."
         };
     }
     componentWillMount()
@@ -27,15 +29,46 @@ class RandomAnimePanel extends React.Component {
         return options;
     }
     
-    getRandomAnime(){
-
+    getRandomAnime()
+    {
+        const instance = axios.create({
+            headers:
+            {
+                'baseURL': '/generators/anime/new/ HTTP/1.1',
+                "accept-language":"ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                "x-requested-with":"XMLHttpRequest",
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+          });
+          instance.post('https://genword.ru/generators/anime/new/')
+          
+        /*axios.post('https://genword.ru/generators/anime/new/', {form : "", 
+        headers:
+        {
+            "accept-language":"ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+            "x-requested-with":"XMLHttpRequest",
+            "Host":"genword.ru",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Length": 0
+        }})*/
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            this.setState({debug: res});
+        });
+/*
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://genword.ru/generators/anime/new/');
+        xhr.send("accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7 \nx-requested-with: XMLHttpRequest");
+        */
     }
 
     render() {
         return (
             <Div>
                 {this.state.animeInfo}
-                <Spinner/>
+                <Button onClick={e => this.getRandomAnime()}>Get Random Anime</Button>
+                {this.state.debug}
             </Div>
         );
     }

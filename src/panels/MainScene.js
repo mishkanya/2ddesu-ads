@@ -51,8 +51,9 @@ class MainScene extends React.Component {
     this.state = {
       getUserInfo: false,
       userInfo: "",
-      activeView: 'MainMenu',
       Debug: null,
+      activeView: 'RandomAnime',
+      
     }
   }
   options() {

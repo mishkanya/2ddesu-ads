@@ -2,6 +2,7 @@ import React from 'react';
 import { SimpleCell, Div, Text, Button, Card } from '@vkontakte/vkui';
 
 //#region icons
+// eslint-disable-all-lines
 import Icon28CancelCircleOutline from '@vkontakte/icons/dist/28/cancel_circle_outline';
 import Icon28MoreHorizontal from '@vkontakte/icons/dist/28/more_horizontal';
 import Icon24DoNotDisturb from '@vkontakte/icons/dist/24/do_not_disturb';
