@@ -82,11 +82,14 @@ class MainScene extends React.Component {
       try
       {
         console.log(data);
-        this.setState({Debug: data.detail.data.scheme});
+        if(data.detail.data.scheme != null)
+          this.setState({Debug: data.detail.data.scheme});
+        else
+        this.setState({Debug: "Buuuuuugs"});
       }
       catch
       {
-        console.log("Hi pc");
+        this.setState({Debug: "Hi pc user"});
       }
       
     }
