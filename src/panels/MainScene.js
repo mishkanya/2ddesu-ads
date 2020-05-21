@@ -69,7 +69,7 @@ class MainScene extends React.Component {
         this.setState({ userInfo: user_data });
         this.setState({ getUserInfo: true });
       });
-      bridge.subscribe(e => (this.changeAppTheme(e)));
+      //bridge.subscribe(e => (this.changeAppTheme(e)));
       
     }
     .bind(this), 200);
