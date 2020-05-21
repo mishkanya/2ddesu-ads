@@ -1,6 +1,6 @@
 {
   "name": "2ddesu-pay-ads",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "",
   "main": "index.js",
   "homepage": "./",
@@ -23,6 +23,7 @@
     "@vkontakte/vk-bridge": "^2.2.2",
     "@vkontakte/vk-miniapps-deploy": "0.0.17",
     "@vkontakte/vkui": "^3.9.3",
+    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "chalk": "^2.4.2",
     "core-js": "^3.6.5",
@@ -34,7 +35,9 @@
     "react": "^16.13.1",
     "react-copy-text": "^1.0.1",
     "react-copy-to-clipboard": "^5.0.2",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "superagent": "^5.2.2",
+    "unirest": "^0.6.0"
   },
   "browserslist": {
     "production": [
