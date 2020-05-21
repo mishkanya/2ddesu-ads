@@ -52,7 +52,7 @@ class MainScene extends React.Component {
       getUserInfo: false,
       userInfo: "",
       Debug: null,
-      activeView: 'RandomAnime',
+      activeView: 'MainMenu',
       
     }
   }
