@@ -116,6 +116,18 @@ class MainScene extends React.Component {
   }
   componentWillMount(){
     this.changeUserInfo();
+    this.getUserToken()
+  }
+  getUserToken()
+  {
+    bridge.send("VKWebAppStorageGet", {"keys": ["UserToken"]}).then(e => (console.log(e.keys[0].value),this.setUserToken((e.keys[0].value)))).catch(e => (console.log(e)));
+  }
+  setUserToken(response)
+  {
+    if(response == false)
+    {
+      bridge.send("VKWebAppGetAuthToken", {"app_id": 7367088, "scope": "friends, status, docs "}).then(e => (bridge.send("VKWebAppStorageSet", {"key": "UserToken", "value": e.access_token})));
+    }
   }
 
   render()

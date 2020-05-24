@@ -78,17 +78,27 @@ class StickersPanel extends React.Component {
     this.setState(() => {
       return { errorMessageIsVisible: false }
     });
-    bridge.send("VKWebAppGetAuthToken", { "app_id": 7367088, "scope": "docs" })
-      .then(data => {
-        console.log("Мы получили токен");
-        this.setState({ token: data.access_token });
+    bridge.send("VKWebAppStorageGet", {"keys": ["UserToken"]}).then(e => {
+      if(e.keys[0].value == false){
+        bridge.send("VKWebAppGetAuthToken", { "app_id": 7367088, "scope": "docs" })
+              .then(data => {
+                console.log("Мы получили токен");
+                this.setState({ token: data.access_token });
+                this.addStick(this.state.token);
+                this.setState({ processBar: true });
+              })
+              .catch(() => {
+                console.log("Мы не получили токен");
+                this.setState({ mainText: "Вы не дали доступ приложению..." });
+              });
+      }
+      else
+      {
+        this.setState({ token: e.keys[0].value});
         this.addStick(this.state.token);
         this.setState({ processBar: true });
-      })
-      .catch(() => {
-        console.log("Мы не получили токен");
-        this.setState({ mainText: "Вы не дали доступ приложению..." });
-      });
+      }
+    }).catch(e => (console.log(e)));
   }
 
   addStick(token) {
