@@ -23,11 +23,36 @@ class PersonlPanel extends React.Component {
     return options;
   }
   componentWillMount() {
-    bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": usersIds, "fields": "photo_200, online", "v": "5.103", "access_token": "1a7cdee11a7cdee11a7cdee1831a0cb75111a7c1a7cdee14408388386a75fcfaf979b65" } })
+    let token;
+    bridge.send("VKWebAppStorageGet", {"keys": ["UserToken"]})
+    .then(e => {
+      if(e.keys[0].value == false){
+        bridge.send("VKWebAppGetAuthToken", { "app_id": 7367088, "scope": "docs" })
+        .then(data => 
+        {
+          token = data.access_token;
+          bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": usersIds, "fields": "photo_200, online", "v": "5.103", "access_token": token } })
+          .then(user_data => {
+            this.setState({ usersInfo: user_data });
+          });
+        })
+        .catch(() => {
+          console.log("Мы не получили токен");
+          this.setState({ mainText: "Вы не дали доступ приложению..." });
+        });
+      }
+      else
+      {
+        token = e.keys[0].value;
+        bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": usersIds, "fields": "photo_200, online", "v": "5.103", "access_token": token } })
       .then(user_data => {
         this.setState({ usersInfo: user_data });
       });
+      }
+    })
+    .catch(e => (console.log(e)));
   }
+  setUserData
   getPersonInfo(id) {
     let userInfo;
     try {
