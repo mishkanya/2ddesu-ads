@@ -88,7 +88,6 @@ class MainScene extends React.Component {
         this.setState({ userInfo: user_data });
         this.setState({ getUserInfo: true });
       });
-      //bridge.subscribe(e => (this.changeAppTheme(e)));
       
     }
     .bind(this), 200);
@@ -178,7 +177,7 @@ class MainScene extends React.Component {
 
             <Group align="center" header={<Header mode="secondary">Приятные плюшки</Header>}>
               <Div><Button before={<Icon24Gift width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'Stickers' })}>Стикеры группы</Button></Div>
-              <Div><Button before={<Icon24Services width={20} height={20} />} mode="destructive" size="l" onClick={() => this.setState({ activeView: 'RandomAnime' })}>Случайное аниме</Button></Div>
+              <Div><Button before={<Icon24Services width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'RandomAnime' })}>Случайное аниме</Button></Div>
             </Group >
 
             <Group align="center" header={<Header mode="secondary">Информация</Header>}>

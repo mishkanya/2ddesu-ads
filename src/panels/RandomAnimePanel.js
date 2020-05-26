@@ -22,7 +22,7 @@ class RandomAnimePanel extends React.Component {
 
     render() {
         return (
-                <iframe src="https://genword.ru/generators/anime/" width="100%" height="800" frameborder="0"/>
+                <iframe src="https://genword.ru/generators/anime/" width="100%" height="800" frameBorder="0"/>
         );
     }
 }
