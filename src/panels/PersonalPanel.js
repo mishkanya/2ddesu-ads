@@ -11,6 +11,7 @@ class PersonlPanel extends React.Component {
 
     this.state =
     {
+      userToken: null,
       usersInfo: null,
     };
   }
@@ -23,14 +24,25 @@ class PersonlPanel extends React.Component {
     return options;
   }
   componentWillMount() {
-    bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": usersIds, "fields": "photo_200, online", "v": "5.103", "access_token": "1a7cdee11a7cdee11a7cdee1831a0cb75111a7c1a7cdee14408388386a75fcfaf979b65" } })
-      .then(user_data => {
+    this.getUserToken();
+  }
+  getUserToken()
+  {
+    bridge.send("VKWebAppStorageGet", {"keys": ["UserToken"]})
+    .then(e =>{
+      bridge.send("VKWebAppCallAPIMethod", { "method": "users.get", "request_id": "32test", "params": { "user_ids": usersIds, "fields": "photo_200, online", "v": "5.103", "access_token": e.keys[0].value}})
+      .then(user_data => 
+      {
         this.setState({ usersInfo: user_data });
       });
+      this.setState({userToken: e.keys[0].value});
+    })
   }
-  getPersonInfo(id) {
+  getPersonInfo(id)
+  {
     let userInfo;
-    try {
+    try 
+    {
       userInfo = this.state.usersInfo.response[id];
     }
     catch

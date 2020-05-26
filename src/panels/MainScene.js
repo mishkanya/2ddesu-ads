@@ -117,18 +117,27 @@ class MainScene extends React.Component {
   componentWillMount()
   {
     this.changeUserInfo();
-    this.getUserToken()
+    this.checkUserToken()
   }
-  getUserToken()
-  {
-    bridge.send("VKWebAppStorageGet", {"keys": ["UserToken"]}).then(e => (console.log(e.keys[0].value),this.setUserToken((e.keys[0].value)))).catch(e => (console.log(e)));
+
+  checkUserToken(){
+    let token;
+    bridge.send("VKWebAppStorageGet", {"keys": ["UserToken"]}).then(e => {
+      token = e.keys[0].value;
+      bridge.send("VKWebAppCallAPIMethod", {"method": "users.get", "request_id": "32test", "params": {"user_ids": "1", "v":"5.107", "access_token" : token}})
+      .then(data => {
+        bridge.send("VKWebAppStorageSet", {"key": "UserToken", "value": token})
+      })
+      .catch(err => {
+        console.log(err);
+        this.setUserToken();
+      });
+    });
   }
-  setUserToken(response)
+  setUserToken()
   {
-    if(response == false)
-    {
-      bridge.send("VKWebAppGetAuthToken", {"app_id": 7367088, "scope": "friends, status, docs "}).then(e => (bridge.send("VKWebAppStorageSet", {"key": "UserToken", "value": e.access_token})));
-    }
+    bridge.send("VKWebAppGetAuthToken", {"app_id": 7367088, "scope": "friends, status, docs "})
+    .then(e => (bridge.send("VKWebAppStorageSet", {"key": "UserToken", "value": e.access_token})));
   }
 
   render()
