@@ -1,5 +1,5 @@
 import React from 'react';
-import {Spinner, Button, Header, Div } from '@vkontakte/vkui';
+import {Spinner, Button, Header, Div, Group } from '@vkontakte/vkui';
 //const axios = require('axios').default;
 import axios from "axios";
 
@@ -10,8 +10,6 @@ class RandomAnimePanel extends React.Component {
 
         this.state =
         {
-            animeInfo: <Header>Эта функция недоступна...</Header>,
-            debug:"dont work..."
         };
     }
     options() {
@@ -21,55 +19,10 @@ class RandomAnimePanel extends React.Component {
         }
         return options;
     }
-    
-    getRandomAnime()
-    {
-        var unirest = require("unirest");
-
-var req = unirest("POST", "https://genword.ru/generators/anime/new/");
-
-req.headers({
-    'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
-    'x-requested-with': 'XMLHttpRequest'
-});
-
-req.form({});
-
-req.end(function (res) {
-
-    console.log(res.body);
-    
-});
-        /*
-        axios({
-            method: 'post',
-            url: '/register',
-            data: formData,
-            config: { headers: {'Content-Type': 'multipart/form-data' }
-        }
-        })
-        .then(function (response) {
-            console.log()
-        })
-        .catch(function (response) {
-            //handle error
-        });
-          */
-/*
-https://genword.ru/generators/anime/new?accept-language:ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7&x-requested-with:XMLHttpRequest
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://genword.ru/generators/anime/new/');
-        xhr.send("accept-language:  \nx-requested-with: XMLHttpRequest");
-        */
-    }
 
     render() {
         return (
-            <Div>
-                {this.state.animeInfo}
-                <Button onClick={e => this.getRandomAnime()}>Get Random Anime</Button>
-                {this.state.debug}
-            </Div>
+                <iframe src="https://genword.ru/generators/anime/" width="100%" height="800" frameborder="0"/>
         );
     }
 }

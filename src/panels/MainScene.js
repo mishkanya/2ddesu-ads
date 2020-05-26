@@ -52,7 +52,7 @@ class MainScene extends React.Component {
       getUserInfo: false,
       userInfo: "",
       Debug: null,
-      activeView: 'MainMenu',
+      activeView: 'MainMenu', // RandomAnime, MainMenu
       
     }
   }
@@ -114,7 +114,8 @@ class MainScene extends React.Component {
     }
     Checed = false;
   }
-  componentWillMount(){
+  componentWillMount()
+  {
     this.changeUserInfo();
     this.getUserToken()
   }
