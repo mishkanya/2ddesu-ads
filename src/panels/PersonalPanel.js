@@ -58,19 +58,7 @@ class PersonlPanel extends React.Component {
           <Person userInfo={this.getPersonInfo(0)} vacancy="Владелец" />
         </Group>
         <Group>
-          <Person userInfo={this.getPersonInfo(1)} vacancy="Зам. владельца" />
-        </Group>
-        <Group>
           <Person userInfo={this.getPersonInfo(3)} vacancy="Менеджер" />
-        </Group>
-        <Group>
-          <Person userInfo={this.getPersonInfo(2)} mode="streamer" vacancy="Стример" projectLink="https://www.twitch.tv/dantis" />
-        </Group>
-        <Group>
-          <Person userInfo={this.getPersonInfo(4)} mode="painter" vacancy="Художник" projectLink="https://vk.com/galleryoffd" />
-        </Group>
-        <Group>
-          <Person userInfo={this.getPersonInfo(5)} vacancy="Ангельский голосок" />
         </Group>
       </List>
     );

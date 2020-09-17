@@ -1,5 +1,6 @@
 import React from 'react';
-class RandomAnimePanel extends React.Component {
+import { Div } from '@vkontakte/vkui';
+class CharacterGeneratorPanel extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,9 +19,9 @@ class RandomAnimePanel extends React.Component {
 
     render() {
         return (
-            <iframe src="https://genword.ru/generators/anime/" width="100%" height="800" frameBorder="0"/>
+            <iframe src="https://tools.seo-zona.ru/anime" width="100%" height="800" frameBorder="0"/>
         );
     }
 }
 
-export default RandomAnimePanel
+export default CharacterGeneratorPanel

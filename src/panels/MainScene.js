@@ -12,6 +12,7 @@ import HelpPanel from './HelpPanel';
 import VacansiesPanel from './VacansiesPanel';
 import PersonalPanel from './PersonalPanel';
 import RandomAnimePanel from './RandomAnimePanel';
+import CharacterGeneratorPanel from './CharacterGeneratorPanel';
 
 //#endregion
 
@@ -25,6 +26,7 @@ import Icon24Info from '@vkontakte/icons/dist/24/info';///помощь
 import Icon24Users from '@vkontakte/icons/dist/24/users';//персонал
 import Icon24UserAdd from '@vkontakte/icons/dist/24/user_add';//вакансии
 import Icon24Services from '@vkontakte/icons/dist/24/services';//случайное аниме
+import Icon24Palette from '@vkontakte/icons/dist/24/palette';//генератор персонажа
 //#endregion
 
 const promoBannerProps = {
@@ -178,6 +180,7 @@ class MainScene extends React.Component {
             <Group align="center" header={<Header mode="secondary">Приятные плюшки</Header>}>
               <Div><Button before={<Icon24Gift width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'Stickers' })}>Стикеры группы</Button></Div>
               <Div><Button before={<Icon24Services width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'RandomAnime' })}>Случайное аниме</Button></Div>
+              <Div><Button before={<Icon24Palette width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'CharacterGenerator' })}>Генератор персонажей</Button></Div>
             </Group >
 
             <Group align="center" header={<Header mode="secondary">Информация</Header>}>
@@ -250,7 +253,6 @@ class MainScene extends React.Component {
             </FixedLayout>;*/}
           </Panel>
         </View>
-      
 
         <View header activePanel="PayInfoPanel" id="PayInfoPanel">
           <Panel id="PayInfoPanel">
