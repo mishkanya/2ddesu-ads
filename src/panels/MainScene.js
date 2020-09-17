@@ -180,8 +180,7 @@ class MainScene extends React.Component {
             <Group align="center" header={<Header mode="secondary">Приятные плюшки</Header>}>
               <Div><Button before={<Icon24Gift width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'Stickers' })}>Стикеры группы</Button></Div>
               <Div><Button before={<Icon24Services width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'RandomAnime' })}>Случайное аниме</Button></Div>
-              <Div><Button before={<Icon24Palette width={20} height={20} />} mode="commerce" size="l" onClick={() => this.setState({ activeView: 'CharacterGenerator' })}>Генератор персонажей</Button></Div>
-            </Group >
+             </Group >
 
             <Group align="center" header={<Header mode="secondary">Информация</Header>}>
               <Div><Button before={<Icon24Note width={20} height={20} />} size="l" onClick={() => this.setState({ activeView: 'PayInfoPanel' })}>Реквизиты</Button></Div>
@@ -253,6 +252,16 @@ class MainScene extends React.Component {
             </FixedLayout>;*/}
           </Panel>
         </View>
+      
+        <View header activePanel="CharacterGenerator" id="CharacterGenerator">
+          <Panel id="CharacterGenerator">
+            <PanelHeader left={<PanelHeaderBack onClick={() => this.setState({ activeView: 'MainMenu' })} />}>
+              <Button after={<Icon24Palette width={20} height={20} />} size="xl" mode="tertiary" target="_blank" href='https://vk.com/club143313662'>Генератор персонажей</Button>
+            </PanelHeader>
+            <CharacterGeneratorPanel/>
+          </Panel>
+        </View>
+      
 
         <View header activePanel="PayInfoPanel" id="PayInfoPanel">
           <Panel id="PayInfoPanel">
